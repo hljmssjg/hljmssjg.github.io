@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>java学习笔记01-java和notepad的安装，hello world案例</title>
+      <link href="/2021/10/26/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/"/>
+      <url>/2021/10/26/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/</url>
+      
+        <content type="html"><![CDATA[<h1>前言</h1><p>b站java课程学习笔记整理。</p><p>b站视频: <a href="https://www.bilibili.com/video/BV18J411W7cE?p=9">https://www.bilibili.com/video/BV18J411W7cE?p=9</a></p><p>在一声声林青霞和张曼玉中迷失了自我。</p><h1>1. Java语言发展史</h1><p>没啥用，不记了</p><h1>2. Java语言跨平台原理</h1><p>Java通过JVM而适应不同的操作系统</p><h1>3. JRE和JDK</h1><h2 id="3-1-JRE">3.1 JRE</h2><p>JRE（Java Runtime Environment）是Java程序的运行时环境，包含JVM和运行时所需要的核心类库。JRE可以实现跨平台。可以实现Java运行。</p><h2 id="3-2-JDK（最重要的）">3.2 JDK（最重要的）</h2><p>是Java程序开发工具包，包含JRE和开发人员使用工具。（JDK是最牛b的）</p><h1>4. JDK的下载和安装</h1><p>略</p><h1>5. 常用DOS命令</h1><table><thead><tr><th style="text-align:center">命令</th><th style="text-align:center">作用</th></tr></thead><tbody><tr><td style="text-align:center">e:</td><td style="text-align:center">进入E盘</td></tr><tr><td style="text-align:center">dir</td><td style="text-align:center">查看当前文件夹</td></tr><tr><td style="text-align:center">cd</td><td style="text-align:center">进入</td></tr><tr><td style="text-align:center">cd …</td><td style="text-align:center">回退</td></tr><tr><td style="text-align:center">cd \</td><td style="text-align:center">回退到根目录</td></tr><tr><td style="text-align:center">cls</td><td style="text-align:center">清屏</td></tr><tr><td style="text-align:center">exit</td><td style="text-align:center">退出</td></tr><tr><td style="text-align:center">写个首字母，按Tab</td><td style="text-align:center">命令自动补齐</td></tr></tbody></table><h1>6. path环境变量配置</h1><p>流程: 改JAVA_HOME 改成JDK地址。<br><img src="/2021/10/26/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE.JPG" alt="配置成功"></p><h1>7. Hello world 案例</h1><p>代码需要经过“<strong>书写-编译-运行</strong>”三个步骤。</p><h2 id="7-1-新建文本文档">7.1 新建文本文档</h2><p>文本文档命名为HelloWorld.java</p><h2 id="7-2-写程序">7.2 写程序</h2><p>用记事本打开该文档，输入代码<br></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System. out. println(<span class="string">&quot;HelloWorld);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure><h2 id="7-3-编译和运行">7.3 编译和运行</h2><h3 id="7-3-1-编译">7.3.1 编译</h3><p>javac 文件名.java</p><h3 id="7-3-2-运行">7.3.2 运行</h3><p>java 类名</p><h2 id="7-4-实战">7.4 实战</h2><p>遇到的坑:txt改不了.java后缀。</p><p>解决办法: 查看-文件拓展名-勾选<br>结果：<br><img src="/2021/10/26/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/helloworld%E6%A1%88%E4%BE%8B.JPG" alt="Hello world!"></p><h1>8. HelloWorld案例常见问题</h1><table><thead><tr><th style="text-align:center">bug</th><th style="text-align:center">什么原因</th></tr></thead><tbody><tr><td style="text-align:center">非法字符</td><td style="text-align:center">有中文符号</td></tr><tr><td style="text-align:center">xxx不存在</td><td style="text-align:center">xxx拼写错误了</td></tr></tbody></table><h1>9. Notepad软件的安装与使用</h1><p>没啥要记的，就是个简易IDE，比txt好点，编译不了也运行不了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数学公式测试</title>
       <link href="/2021/10/25/KaTeX%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8/"/>
       <url>/2021/10/25/KaTeX%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8/</url>
