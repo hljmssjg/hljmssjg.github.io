@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Github访问不稳定的解决方案</title>
+      <link href="/2021/10/26/Github%E8%AE%BF%E9%97%AE%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+      <url>/2021/10/26/Github%E8%AE%BF%E9%97%AE%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+      
+        <content type="html"><![CDATA[<h1>1. 问题描述</h1><p>国内因为防火墙的原因经常打不开github.com这个网站，同时使用git 命令时也会报错Error 443.<br><img src="/2021/10/26/Github%E8%AE%BF%E9%97%AE%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/443.JPG" alt="Error 443"><br><img src="/2021/10/26/Github%E8%AE%BF%E9%97%AE%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/github404.JPG" alt="Github 404"><br>这是真的搞人心态:) 搜遍了互联网尝试了三种方法:<br>一、 改host地址</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.sslVerify <span class="string">&quot;false&quot;</span></span><br></pre></td></tr></table></figure><p>二、 用dev-sidecar<br>下载链接: <a href="https://gitee.com/docmirror/dev-sidecar/releases">https://gitee.com/docmirror/dev-sidecar/releases</a><br>三、 用SwitchHosts<br>下载链接: <a href="https://github.com/oldj/SwitchHosts">https://github.com/oldj/SwitchHosts</a></p><h1>2. 解决方案</h1><p>先说结论：SwitchHosts效果最好</p><h2 id="2-1-改host地址">2.1 改host地址</h2><p>没用，不评论</p><h2 id="2-2-dev-sidecar">2.2 dev-sidecar</h2><p><a href="http://xn--github-2x8i54be2w3ia400h078a3s0amd0ek65a.com">使用后可以正常访问github.com</a></p><p>直接安装就行了。原理是给电脑挂了个代理<br><img src="/2021/10/26/Github%E8%AE%BF%E9%97%AE%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/dev.JPG" alt="dev-sidecar的原理"></p><p>缺点:每次使用后关机必须退出这个应用程序（退出应用程序后代理服务器就取消勾选了），否则再开机就会无法访问互联网<br>（无法访问互联网的解决办法：手动把代理服务器勾掉）。</p><h2 id="2-3-用SwitchHosts">2.3 用SwitchHosts</h2><p>下载后用管理员模式打开，这么设置：<br><img src="/2021/10/26/Github%E8%AE%BF%E9%97%AE%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E6%94%B9host.JPG" alt="SwitchHosts设置"><br>秒进，无敌。</p><h1>3. 总结</h1><p>用SwitchHosts就行了。</p><h1>4. 参考</h1><p><a href="https://blog.csdn.net/goodjobman/article/details/118642321?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.opensearchhbase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.opensearchhbase">https://blog.csdn.net/goodjobman/article/details/118642321?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~default-1.opensearchhbase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~default-1.opensearchhbase</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 解决方案 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java学习笔记01-java和notepad的安装，hello world案例</title>
       <link href="/2021/10/26/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/"/>
       <url>/2021/10/26/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/</url>
