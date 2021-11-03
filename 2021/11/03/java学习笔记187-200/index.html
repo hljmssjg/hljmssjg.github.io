@@ -1,0 +1,464 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>java学习笔记187-200 内部类、Math，System，冒泡排序，Arrays | 孙健耕的博客</title><meta name="keywords" content="Java, 笔记"><meta name="author" content="孙健耕"><meta name="copyright" content="孙健耕"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="根据B站学习的Java学习笔记，从第187集到第200集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java学习笔记187-200 内部类、Math，System，冒泡排序，Arrays">
+<meta property="og:url" content="https://hljmssjg.github.io/2021/11/03/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0187-200/index.html">
+<meta property="og:site_name" content="孙健耕的博客">
+<meta property="og:description" content="根据B站学习的Java学习笔记，从第187集到第200集">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg">
+<meta property="article:published_time" content="2021-11-03T01:51:33.000Z">
+<meta property="article:modified_time" content="2021-11-03T08:02:26.756Z">
+<meta property="article:author" content="孙健耕">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hljmssjg.github.io/2021/11/03/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0187-200/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'java学习笔记187-200 内部类、Math，System，冒泡排序，Arrays',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2021-11-03 16:02:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/头像.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/cat.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">孙健耕的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">java学习笔记187-200 内部类、Math，System，冒泡排序，Arrays</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-03T01:51:33.000Z" title="发表于 2021-11-03 09:51:33">2021-11-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-03T08:02:26.756Z" title="更新于 2021-11-03 16:02:26">2021-11-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java学习笔记187-200 内部类、Math，System，冒泡排序，Arrays"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>前言</h1>
+<p>b站java课程学习笔记整理。</p>
+<p>b站视频: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18J411W7cE?p=9">https://www.bilibili.com/video/BV18J411W7cE?p=9</a></p>
+<h1>187.类名/抽象类名作为形参和返回值</h1>
+<h2 id="187-1-类名作为形参和返回值">187.1 类名作为形参和返回值</h2>
+<ul>
+<li>方法的形参是类名，其实需要的是该类的对象。</li>
+<li>方法的返回值是类名，其实返回的是该类的对象。</li>
+</ul>
+<h2 id="187-2-抽象类名作为形参和返回值">187.2 抽象类名作为形参和返回值</h2>
+<ul>
+<li>方法的形参是抽象类名，其实需要的是该抽象类的子类对象。</li>
+<li>方法的返回值是抽象类名，其实返回的是该抽象类的子类对象。</li>
+</ul>
+<h1>188.接口名作为形参和返回值</h1>
+<ul>
+<li>方法的形参是接口名，其实需要的是该接口的实现类对象。</li>
+<li>方法的返回值是接口名，其实返回的是该接口的实现类对象。</li>
+</ul>
+<h1>189.内部类</h1>
+<p>在类A中定义一个类B，那这个类B就称之为内部类。<br>
+定义格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">public class 类名&#123;</span></span><br><span class="line"><span class="comment">    修饰符 class 类名&#123;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Inter</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内部类的访问特点：</p>
+<ul>
+<li>内部类可以直接访问外部类的成员，包括私有。</li>
+<li>外部类要想访问内部类，必须创建对象。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 内部类;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span></span>&#123;</span><br><span class="line">        <span class="comment">// 内部类访问外部类成员</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(num);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// 这样不行</span></span><br><span class="line">        <span class="comment">// show();</span></span><br><span class="line"></span><br><span class="line">        Inner i = <span class="keyword">new</span> Inner();</span><br><span class="line">        i.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>190.成员内部类</h1>
+<p>按照内部类在类中的定义的位置不同，可以分为如下的两种形式</p>
+<ul>
+<li>在类的成员位置：成员内部类</li>
+<li>在类的局部位置，局部内部类</li>
+</ul>
+<p>成员内部类，外界如何创建使用呢？</p>
+<ul>
+<li>格式:外部类名.内部类名 对象名= new 外部类对象.内部类对象</li>
+<li>例子：Outer.Inner oi = new Outer().new Inner();</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 成员内部类;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*    public class Inner&#123;</span></span><br><span class="line"><span class="comment">            public void show()&#123;</span></span><br><span class="line"><span class="comment">                System.out.println(num);</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">        &#125;*/</span></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(num);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Inner i = <span class="keyword">new</span> Inner();</span><br><span class="line">        i.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 成员内部类;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 这样写不行</span></span><br><span class="line">        <span class="comment">// Inner i = new Inner();</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 当内部类为public，但是不常用</span></span><br><span class="line"><span class="comment">/*        Outer.Inner oi = new Outer().new Inner();</span></span><br><span class="line"><span class="comment">        oi.show();*/</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 当内部类为private时，需要在外部类编写一个方法，创建对象，调用内部类的方法，然后再测试类调用外部类中的调用方法。</span></span><br><span class="line">        Outer o = <span class="keyword">new</span> Outer();</span><br><span class="line">        o.method();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>191.局部内部类</h1>
+<p>局部内部类外界也无法访问，需要外部类创建对象调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 局部内部类;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num2 = <span class="number">20</span>;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Inner</span></span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">                System.out.println(num);</span><br><span class="line">                System.out.println(num2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Inner i = <span class="keyword">new</span> Inner();</span><br><span class="line">        i.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 局部内部类;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Outer o = <span class="keyword">new</span> Outer();</span><br><span class="line">        o.method();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>192.匿名内部类</h1>
+<p>匿名内部类是<strong>局部内部类</strong>的特殊形式。</p>
+<p>前提: 存在一个类（可以是具体类也可以是抽象类）。</p>
+<p>格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">new 类名或者接口名()&#123;</span></span><br><span class="line"><span class="comment">    重写方法;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Inner()&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>本质：继承了该类或实现了该接口的一个子类匿名对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 匿名内部类;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Inter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 匿名内部类;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/*new Inter()&#123;</span></span><br><span class="line"><span class="comment">            @Override</span></span><br><span class="line"><span class="comment">            public void eat() &#123;</span></span><br><span class="line"><span class="comment">                System.out.println(&quot;重写吃饭方法&quot;);</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">        &#125;.eat();*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Inter i = <span class="keyword">new</span> Inter()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;重写吃饭方法&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        i.eat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 匿名内部类;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Outer o = <span class="keyword">new</span> Outer();</span><br><span class="line">        o.method();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>193.匿名内部类在开发中的使用</h1>
+<p>每次实现一个接口都要重新创建一个新的实现类，然后再main方法中用多态的方法创建一个新对象，再实现接口功能。太麻烦了。</p>
+<p>这种情况下可以使用匿名内部类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 匿名内部类实现;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span>  <span class="keyword">implements</span> <span class="title">Jumpping</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jump</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;猫可以跳高了&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 匿名内部类实现;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JumpingOperator</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span><span class="params">(Jumpping j )</span></span>&#123;</span><br><span class="line">        j.jump();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 匿名内部类实现;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Jumpping</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">jump</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 匿名内部类实现;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JumppingDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 之前学过的接口的构造方法</span></span><br><span class="line">        JumpingOperator jo = <span class="keyword">new</span> JumpingOperator();</span><br><span class="line">        Jumpping c = <span class="keyword">new</span> Cat();</span><br><span class="line">        jo.operate(c);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果有很多个动物，就要创建很多个类，太麻烦了。这时可以使用匿名内部类</span></span><br><span class="line">        <span class="comment">// 匿名内部类本质是继承了该类或实现了该接口的一个子类匿名对象。</span></span><br><span class="line"></span><br><span class="line">        JumpingOperator jo1 = <span class="keyword">new</span> JumpingOperator();</span><br><span class="line">        jo1.operate(<span class="keyword">new</span> Jumpping() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jump</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;狗可以跳高了&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        jo1.operate( <span class="keyword">new</span> Jumpping() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jump</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;猪可以跳高了&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 匿名内部类的多次调用</span></span><br><span class="line">        Jumpping n = <span class="keyword">new</span> Jumpping() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jump</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;袋鼠可以多次跳高了&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        jo1.operate(n);</span><br><span class="line">        jo1.operate(n);</span><br><span class="line">        jo1.operate(n);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>194.MATH</h1>
+<p>Math包含执行基本数字类型的方法。它没有构造方法，但是类的成员都是静态的。因此可以直接通过类名调用。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Math类的常用方法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">public static int abs(int a)</td>
+<td style="text-align:center">返回参数的绝对值</td>
+</tr>
+<tr>
+<td style="text-align:center">public static double ceil(double a)</td>
+<td style="text-align:center">返回大于或等于参数的最小整数值，类型为double</td>
+</tr>
+<tr>
+<td style="text-align:center">public static double floor(double a)</td>
+<td style="text-align:center">返回小于或等于参数的最小整数值，类型为double</td>
+</tr>
+<tr>
+<td style="text-align:center">public static int round(float a )</td>
+<td style="text-align:center">返回四舍五入下的最接近参数的int</td>
+</tr>
+<tr>
+<td style="text-align:center">public static int max(int a, int b)</td>
+<td style="text-align:center">返回两个参数中的较大值</td>
+</tr>
+<tr>
+<td style="text-align:center">public static int min(int a, int b)</td>
+<td style="text-align:center">返回两个参数中的较小值</td>
+</tr>
+<tr>
+<td style="text-align:center">public static double pow(double a, double b)</td>
+<td style="text-align:center">返回a的b次幂的值</td>
+</tr>
+<tr>
+<td style="text-align:center">public static double random()</td>
+<td style="text-align:center">返回值为double的正值，范围是[0.0,1.0)</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Math常用方法;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MathTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(Math.abs(-<span class="number">88</span>));</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        System.out.println(Math.ceil(<span class="number">12.22</span>));</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        System.out.println(Math.floor(<span class="number">12.22</span>));</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        System.out.println(Math.round(<span class="number">12.49</span>));</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        System.out.println(Math.max(<span class="number">2</span>,<span class="number">1</span>));</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        System.out.println(Math.min(<span class="number">3</span>,<span class="number">4</span>));</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        System.out.println(Math.pow(<span class="number">2.0</span>,<span class="number">3.0</span>));</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        System.out.println(Math.random());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>195.System</h1>
+<p>System类的成员都是静态的。因此可以直接通过类名调用。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">System类的常用方法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">public static void exit (int status)</td>
+<td style="text-align:center">中止当前的java虚拟机。非零表示中止异常</td>
+</tr>
+<tr>
+<td style="text-align:center">public static long currentTimeMillis()</td>
+<td style="text-align:center">返回当前时间，以毫秒为单位</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> System常用方法;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SystemTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;开始&quot;</span>);</span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">            System.out.println(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//        System.exit(0);</span></span><br><span class="line">        System.out.println(<span class="string">&quot;结束&quot;</span>);</span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;共耗时&quot;</span> + (end - start) + <span class="string">&quot;毫秒&quot;</span>);</span><br><span class="line">        System.exit(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注意定义为long的数据形式。</p>
+<h1>196.Object类的toString()方法</h1>
+<p>Object是类层次结构的根，每个类都可以将Object类当作父类。所有的类都间接的或者直接的继承该类。</p>
+<p>构造方法public Object()</p>
+<p>所以说子类的默认构造方法默认访问的是父类的无参构造方法。</p>
+<p>toString方法的作用是将内容简明扼要的以字符串表达出来。但是Object类中的不太好看。自己写类的时候最好用Alt+Insert生成一个重写的toString方法。</p>
+<h1>197.Object类的equals()方法</h1>
+<p>比较两个字符串的内容是否相同。之前用过了。不说了。</p>
+<p>注意equals在像之前那样比较字符串的时候才正常工作，但是如果用来比较两个对象，比较的是地址值！</p>
+<p>如果一定要用equals比较两个对象，需要重写方法。用Alt+Insert 选择默认的Idea模板，生成完把哈希code删掉就行了。</p>
+<p>用法就是s1.equals(s2);</p>
+<p>示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> equals方法;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        Student student = (Student) o;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (age != student.age) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> name != <span class="keyword">null</span> ? name.equals(student.name) : student.name == <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> equals方法;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Student s1 = <span class="keyword">new</span> Student();</span><br><span class="line">        s1.setAge(<span class="number">20</span>);</span><br><span class="line">        s1.setName(<span class="string">&quot;Jiangeng Sun&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Student s2 = <span class="keyword">new</span> Student();</span><br><span class="line">        s2.setAge(<span class="number">20</span>);</span><br><span class="line">        s2.setName(<span class="string">&quot;Jiangeng Sun&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(s1.equals(s2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Object方法总结：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">方法</td>
+<td style="text-align:center">说明</td>
+</tr>
+<tr>
+<td style="text-align:center">toString()</td>
+<td style="text-align:center">返回字符串的表现形式，建议重写，自动生成</td>
+</tr>
+<tr>
+<td style="text-align:center">equals()</td>
+<td style="text-align:center">比较对象是否相等。默认比较地址值。重写可以比较内容，自动生成</td>
+</tr>
+</tbody>
+</table>
+<h1>198-199. 冒泡排序原理与代码实现</h1>
+<p>排序：将一组数据按照固定的规则进行排序。</p>
+<p>冒泡排序：数据两两比对，大的放后面。如果有n个数据比较，那么就需要比较n-1次。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 冒泡排序;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaoPao</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">13</span>, <span class="number">15</span>, <span class="number">61</span>, <span class="number">16</span>, <span class="number">41</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        System.out.println(<span class="string">&quot;排序前的数组为&quot;</span> + joint(arr));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr.length-<span class="number">1</span>; j++ )&#123;</span><br><span class="line">            <span class="keyword">int</span> tempValue;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length - j - <span class="number">1</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[i] &gt; arr[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                    tempValue = arr[i];</span><br><span class="line">                    arr[i] = arr[i + <span class="number">1</span>];</span><br><span class="line">                    arr[i + <span class="number">1</span>] = tempValue;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;排序后的数组为&quot;</span>+joint(arr));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用来显示数组的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">joint</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        String temp = <span class="string">&quot;[&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            temp += arr[i];</span><br><span class="line">            <span class="keyword">if</span> (i != arr.length - <span class="number">1</span>) &#123;</span><br><span class="line">                temp += <span class="string">&quot;,&quot;</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                temp += <span class="string">&quot;]&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>200. Arrays</h1>
+<p>有用于操作数组的各种方法。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">toString(int[] a )</td>
+<td style="text-align:center">返回指定数组的内容的字符串表示形式</td>
+</tr>
+<tr>
+<td style="text-align:center">sort(int[] a )</td>
+<td style="text-align:center">按照数字的顺序排列指定的数组</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraysMethod</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">6</span>&#125;;</span><br><span class="line">        System.out.println(<span class="string">&quot;排序前&quot;</span>+ Arrays.toString(arr));</span><br><span class="line"></span><br><span class="line">        Arrays.sort(arr);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;排序后&quot;</span>+ Arrays.toString(arr));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>需要注意的是，这个是Arrays.toString,返回的是数组中的值，和Object.toString（返回的是默认的简明扼要的说明）是不一样的！</p>
+<p>工具类的设计思想：</p>
+<ul>
+<li>构造方法用private修饰。（这样外面就创建不了对象）</li>
+<li>成员用public static修饰。（为了让用户使用类名来访问成员方法）</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:jisu0012@student.umu.se">孙健耕</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hljmssjg.github.io/2021/11/03/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0187-200/">https://hljmssjg.github.io/2021/11/03/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0187-200/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hljmssjg.github.io" target="_blank">孙健耕的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2021/11/02/%E5%AF%B9%E6%8A%97%E6%80%A7%E6%90%9C%E7%B4%A2%E5%A4%8D%E4%B9%A0/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/对抗性搜索复习.JPG" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">对抗搜索复习</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/10/31/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20150-168/" title="java学习笔记 150-168 继承，权限修饰符，final，static"><img class="cover" src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-31</div><div class="title">java学习笔记 150-168 继承，权限修饰符，final，static</div></div></a></div><div><a href="/2021/10/26/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001-09/" title="java学习笔记01-09 java和notepad的安装，hello world案例"><img class="cover" src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-26</div><div class="title">java学习笔记01-09 java和notepad的安装，hello world案例</div></div></a></div><div><a href="/2021/10/27/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B010-25/" title="java学习笔记10-25 关键字，常量变量，运算符"><img class="cover" src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-27</div><div class="title">java学习笔记10-25 关键字，常量变量，运算符</div></div></a></div><div><a href="/2021/10/30/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0134-149/" title="java学习笔记134-149 Arraylist, 学生管理系统"><img class="cover" src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-30</div><div class="title">java学习笔记134-149 Arraylist, 学生管理系统</div></div></a></div><div><a href="/2021/10/31/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0169-186/" title="java学习笔记169-186 多态，抽象类，接口"><img class="cover" src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-31</div><div class="title">java学习笔记169-186 多态，抽象类，接口</div></div></a></div><div><a href="/2021/10/27/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B026-52/" title="java学习笔记26-52 基本语法：输入，判断，循环，随机数"><img class="cover" src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-27</div><div class="title">java学习笔记26-52 基本语法：输入，判断，循环，随机数</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/头像.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">孙健耕</div><div class="author-info__description">瑞典于默奥大学<br>Master's Programme in Robotics and Control</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hljmssjg"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hljmssjg" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jisu0012@umu.student.se" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://umu.se" target="_blank" title="我的学校"><i class="fas fa-school"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/wechat.png" target="_blank" title="我的微信"><i class="fab fa-weixin"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">2021/10/27 所有图片源更换为github图床源：https://github.com/hljmssjg/PicGo</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">187.类名&#x2F;抽象类名作为形参和返回值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#187-1-%E7%B1%BB%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%BD%A2%E5%8F%82%E5%92%8C%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">187.1 类名作为形参和返回值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#187-2-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%BD%A2%E5%8F%82%E5%92%8C%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">187.2 抽象类名作为形参和返回值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">188.接口名作为形参和返回值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">189.内部类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">190.成员内部类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">191.局部内部类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">192.匿名内部类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">193.匿名内部类在开发中的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">194.MATH</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">195.System</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">196.Object类的toString()方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">197.Object类的equals()方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">198-199. 冒泡排序原理与代码实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">200. Arrays</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/03/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0187-200/" title="java学习笔记187-200 内部类、Math，System，冒泡排序，Arrays"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java学习笔记187-200 内部类、Math，System，冒泡排序，Arrays"/></a><div class="content"><a class="title" href="/2021/11/03/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0187-200/" title="java学习笔记187-200 内部类、Math，System，冒泡排序，Arrays">java学习笔记187-200 内部类、Math，System，冒泡排序，Arrays</a><time datetime="2021-11-03T01:51:33.000Z" title="发表于 2021-11-03 09:51:33">2021-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/02/%E5%AF%B9%E6%8A%97%E6%80%A7%E6%90%9C%E7%B4%A2%E5%A4%8D%E4%B9%A0/" title="对抗搜索复习"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/对抗性搜索复习.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="对抗搜索复习"/></a><div class="content"><a class="title" href="/2021/11/02/%E5%AF%B9%E6%8A%97%E6%80%A7%E6%90%9C%E7%B4%A2%E5%A4%8D%E4%B9%A0/" title="对抗搜索复习">对抗搜索复习</a><time datetime="2021-11-02T08:33:27.000Z" title="发表于 2021-11-02 16:33:27">2021-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/02/%E5%85%B3%E4%BA%8E%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%E7%9A%84%E5%A4%8D%E4%B9%A0/" title="关于搜索算法的复习"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/搜索.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于搜索算法的复习"/></a><div class="content"><a class="title" href="/2021/11/02/%E5%85%B3%E4%BA%8E%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%E7%9A%84%E5%A4%8D%E4%B9%A0/" title="关于搜索算法的复习">关于搜索算法的复习</a><time datetime="2021-11-02T01:52:55.000Z" title="发表于 2021-11-02 09:52:55">2021-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/31/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0169-186/" title="java学习笔记169-186 多态，抽象类，接口"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java学习笔记169-186 多态，抽象类，接口"/></a><div class="content"><a class="title" href="/2021/10/31/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0169-186/" title="java学习笔记169-186 多态，抽象类，接口">java学习笔记169-186 多态，抽象类，接口</a><time datetime="2021-10-31T13:53:40.000Z" title="发表于 2021-10-31 21:53:40">2021-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/31/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20150-168/" title="java学习笔记 150-168 继承，权限修饰符，final，static"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java学习笔记 150-168 继承，权限修饰符，final，static"/></a><div class="content"><a class="title" href="/2021/10/31/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20150-168/" title="java学习笔记 150-168 继承，权限修饰符，final，static">java学习笔记 150-168 继承，权限修饰符，final，static</a><time datetime="2021-10-31T01:29:37.000Z" title="发表于 2021-10-31 09:29:37">2021-10-31</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/cat.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 By 孙健耕</div><div class="footer_custom_text">欢迎来到我的博客！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="false"></script><script id="canvas_nest" defer="defer" color="18,175,166" opacity="1" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
