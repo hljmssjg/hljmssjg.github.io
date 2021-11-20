@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/java.jpg">
 <meta property="article:published_time" content="2021-11-09T07:11:28.000Z">
-<meta property="article:modified_time" content="2021-11-10T12:41:18.480Z">
+<meta property="article:modified_time" content="2021-11-20T21:02:50.648Z">
 <meta property="article:author" content="孙健耕">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2021-11-10 20:41:18'
+  postUpdate: '2021-11-21 05:02:50'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -147,15 +147,15 @@
       }
     }
     detectApple()
-    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/头像.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/cat.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">孙健耕的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">java学习笔记272-278 File类的方法，递归</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-09T07:11:28.000Z" title="发表于 2021-11-09 15:11:28">2021-11-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-10T12:41:18.480Z" title="更新于 2021-11-10 20:41:18">2021-11-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java学习笔记272-278 File类的方法，递归"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>前言</h1>
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/头像.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/cat.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">孙健耕的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">java学习笔记272-278 File类的方法，递归</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-09T07:11:28.000Z" title="发表于 2021-11-09 15:11:28">2021-11-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-20T21:02:50.648Z" title="更新于 2021-11-21 05:02:50">2021-11-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java学习笔记272-278 File类的方法，递归"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>前言</h1>
 <p>b站java课程学习笔记整理。</p>
-<p>b站视频: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18J411W7cE?p=9">https://www.bilibili.com/video/BV18J411W7cE?p=9</a></p>
+<p>b站视频: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18J411W7cE?p=9">黑马程序员全套Java教程_Java基础入门视频教程，零基础小白自学Java必备教程</a></p>
 <h1>272. File类概述和构造方法</h1>
 <h2 id="272-1-File类概述">272.1 File类概述</h2>
-<p>File：它是文件和目录路径名的抽象表示。</p>
+<p><code>File</code>：它是文件和目录路径名的抽象表示。</p>
 <ul>
 <li>文件和目录路径名可以通过File封装成对象类。</li>
-<li>对于File而言，其封装的并不是一个真正存在的文件，仅仅是一个路径名而已。它可以实存在的，也可以是不存在的。</li>
+<li>对于<code>File</code>而言，其封装的并不是一个真正存在的文件，仅仅是一个路径名而已。它可以实存在的，也可以是不存在的。</li>
 <li>将来是要通过具体的操作把这个路径的内容转换为具体存在的。</li>
 </ul>
 <h2 id="272-2-File类构造方法">272.2 File类构造方法</h2>
@@ -169,16 +169,16 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">File(String pathname)</td>
-<td style="text-align:center">通过将给定的路径名字符串转换为抽象路径名来创建新的File实例</td>
+<td style="text-align:center"><code>File(String pathname)</code></td>
+<td style="text-align:center">通过将给定的路径名字符串转换为抽象路径名来创建新的<code>File</code>实例</td>
 </tr>
 <tr>
-<td style="text-align:center">File(String parent,String child)</td>
-<td style="text-align:center">从父路径命字符串到子路径名字符串创建新的File实例</td>
+<td style="text-align:center"><code>File(String parent,String child)</code></td>
+<td style="text-align:center">从父路径命字符串到子路径名字符串创建新的<code>File</code>实例</td>
 </tr>
 <tr>
-<td style="text-align:center">File(File parent, String child)</td>
-<td style="text-align:center">从父抽象路径名和子路径名字符串创建新的File实例</td>
+<td style="text-align:center"><code>File(File parent, String child)</code></td>
+<td style="text-align:center">从父抽象路径名和子路径名字符串创建新的<code>File</code>实例</td>
 </tr>
 </tbody>
 </table>
@@ -193,21 +193,21 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">public boolean createNewFile()</td>
+<td style="text-align:center"><code>public boolean createNewFile()</code></td>
 <td style="text-align:center">当具有该名称的文件不存在时，擦混关键一个由该抽象路径名命名的新空文件</td>
 </tr>
 <tr>
-<td style="text-align:center">public boolean mkdir()</td>
+<td style="text-align:center"><code>public boolean mkdir()</code></td>
 <td style="text-align:center">创建由此抽象路径名命名的目录</td>
 </tr>
 <tr>
-<td style="text-align:center">public boolean mkdirs()</td>
+<td style="text-align:center"><code>public boolean mkdirs()</code></td>
 <td style="text-align:center">创建由此抽象路径名命名的目录，包括任何必须但不存在的父目录</td>
 </tr>
 </tbody>
 </table>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> File类概述和构造方法;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">// true 为创建成功，false为文件已经存在</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建文件</span></span><br><span class="line">        File f1 = <span class="keyword">new</span> File(<span class="string">&quot;E:\\theshy\\java.txt&quot;</span>);</span><br><span class="line">        System.out.println(f1.createNewFile());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建文件夹</span></span><br><span class="line">        File f2 = <span class="keyword">new</span> File(<span class="string">&quot;E:\\theshy\\javaSE&quot;</span>);</span><br><span class="line">        System.out.println(f2.mkdir());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建多级目录</span></span><br><span class="line">        File f3 = <span class="keyword">new</span> File(<span class="string">&quot;E:\\theshy\\javaWEB\\HTML&quot;</span>);</span><br><span class="line">        System.out.println(f3.mkdirs());</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>注意: true 为创建成功，false为文件已经存在. 文件和目录名字不能一样。</p>
+<p>注意: <code>true</code> 为创建成功，<code>false</code>为文件已经存在. 文件和目录名字不能一样。</p>
 <h1>274. File类判断和获取功能</h1>
 <table>
 <thead>
@@ -218,36 +218,36 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">public boolean isDirectory()</td>
-<td style="text-align:center">判断此抽象路径名表示的File是否为目录</td>
+<td style="text-align:center"><code>public boolean isDirectory()</code></td>
+<td style="text-align:center">判断此抽象路径名表示的<code>File</code>是否为目录</td>
 </tr>
 <tr>
-<td style="text-align:center">public boolean isFile()</td>
-<td style="text-align:center">测试此抽象路径名表示的File是否为文件</td>
+<td style="text-align:center"><code>public boolean isFile()</code></td>
+<td style="text-align:center">测试此抽象路径名表示的<code>File</code>是否为文件</td>
 </tr>
 <tr>
-<td style="text-align:center">public boolean exists()</td>
-<td style="text-align:center">测试此抽象路径名表示的File是否存在</td>
+<td style="text-align:center"><code>public boolean exists()</code></td>
+<td style="text-align:center">测试此抽象路径名表示的<code>File</code>是否存在</td>
 </tr>
 <tr>
-<td style="text-align:center">public String getAbsolutePath()</td>
+<td style="text-align:center"><code>public String getAbsolutePath()</code></td>
 <td style="text-align:center">返回此抽象路径名的绝对路径名字符串</td>
 </tr>
 <tr>
-<td style="text-align:center">public String getPath()</td>
+<td style="text-align:center"><code>public String getPath()</code></td>
 <td style="text-align:center">将此抽象路径名转换为路径名字符串</td>
 </tr>
 <tr>
-<td style="text-align:center">public String getName()</td>
+<td style="text-align:center"><code>public String getName()</code></td>
 <td style="text-align:center">返回由此抽象路径名表示的文件或目录的名称</td>
 </tr>
 <tr>
-<td style="text-align:center">public String[] list()</td>
+<td style="text-align:center"><code>public String[] list()</code></td>
 <td style="text-align:center">返回此抽象路径名表示的目录中的文件和目录的名称字符串数组</td>
 </tr>
 <tr>
-<td style="text-align:center">public File[] listFiles()</td>
-<td style="text-align:center">返回此抽象路径名表示的目录中的文件和目录的File对象数组</td>
+<td style="text-align:center"><code>public File[] listFiles()</code></td>
+<td style="text-align:center">返回此抽象路径名表示的目录中的文件和目录的<code>File</code>对象数组</td>
 </tr>
 </tbody>
 </table>
@@ -262,7 +262,7 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">public boolean delete</td>
+<td style="text-align:center"><code>public boolean delete</code></td>
 <td style="text-align:center">删除文件或目录</td>
 </tr>
 </tbody>
@@ -273,7 +273,7 @@
 <p>递归指的是方法定义中调用方法自身的现象。</p>
 <p>递归解决不死神兔问题的代码:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 递归;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DiGui</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(f(<span class="number">20</span>));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>||n==<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f(n-<span class="number">1</span>)+f(n-<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>注意递归要有出口。（出口就是return一个具体的结果，不return这个函数本身了。）</p>
+<p>注意递归要有出口。（出口就是<code>return</code>一个具体的结果，不<code>return</code>这个函数本身了。）</p>
 <p>递归解决问题的思路：把一个复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解。递归策略只需要少量的程序就可以描述出解题过程所需要的多次重复计算。</p>
 <h1>277. 递归求阶乘</h1>
 <p>需求: 用递归求5的阶乘，并把结果在控制台输出。</p>
@@ -286,10 +286,10 @@
 <p>思路：</p>
 <ol>
 <li>根据给定的路径创建一个File对象</li>
-<li>定义一个方法，用于获取给定目录下的所有内容，参数为第1步创建的File对象</li>
-<li>获取给定的File目录下所有的文件或者目录的File数组</li>
-<li>遍历该File数组，得到每一个File对象</li>
-<li>判断该File对象是否是目录
+<li>定义一个方法，用于获取给定目录下的所有内容，参数为第1步创建的<code>File</code>对象</li>
+<li>获取给定的File目录下所有的文件或者目录的<code>File</code>数组</li>
+<li>遍历该<code>File</code>数组，得到每一个<code>File</code>对象</li>
+<li>判断该<code>File</code>对象是否是目录
 <ul>
 <li>是:递归调用</li>
 <li>否:获取绝对路径输出在控制台</li>
