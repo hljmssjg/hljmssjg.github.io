@@ -1,0 +1,388 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ROS学习笔记 04 ROS通信编程 | 孙健耕的博客</title><meta name="keywords" content="ROS, 笔记"><meta name="author" content="孙健耕"><meta name="copyright" content="孙健耕"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="深蓝学院ROS理论与实践（胡春旭）笔记整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROS学习笔记 04 ROS通信编程">
+<meta property="og:url" content="https://hljmssjg.github.io/2022/01/10/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B004/index.html">
+<meta property="og:site_name" content="孙健耕的博客">
+<meta property="og:description" content="深蓝学院ROS理论与实践（胡春旭）笔记整理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/ROSlogo.webp">
+<meta property="article:published_time" content="2022-01-10T01:36:00.000Z">
+<meta property="article:modified_time" content="2022-01-10T02:46:38.174Z">
+<meta property="article:author" content="孙健耕">
+<meta property="article:tag" content="ROS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/ROSlogo.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hljmssjg.github.io/2022/01/10/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B004/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ROS学习笔记 04 ROS通信编程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-01-10 10:46:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/头像.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/cat.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">孙健耕的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ROS学习笔记 04 ROS通信编程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-10T01:36:00.000Z" title="发表于 2022-01-10 09:36:00">2022-01-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-10T02:46:38.174Z" title="更新于 2022-01-10 10:46:38">2022-01-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ROS/">ROS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ROS学习笔记 04 ROS通信编程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>前言</h1>
+<p>系统环境: Ubuntu 18.04，硬盘安装。</p>
+<p>ROS版本: melodic</p>
+<p><a target="_blank" rel="noopener" href="https://www.shenlanxueyuan.com/my/course/364">深蓝学院（古月居）胡春旭ROS理论与实践</a>笔记整理。</p>
+<h1>1. Launch启动文件</h1>
+<p>使用一个终端，一个语句，即可实现多节点的启动和配置。使用Launch文件时不需要<code>roscore</code>。</p>
+<p>Launch启动文件的标签如下:</p>
+<table>
+<thead>
+<tr>
+<th>标签名</th>
+<th>说明</th>
+<th>使用范例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;launch&gt;</code></td>
+<td>launch文件中的根元素采用<code>launch</code>标签定义</td>
+<td><code>&lt;launch&gt;...&lt;/launch&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;node&gt;</code></td>
+<td>启动节点</td>
+<td><code>&lt;node pkg=&quot;package-name&quot; type = &quot;executable-name&quot;/&gt;</code></td>
+</tr>
+<tr>
+<td>pkg</td>
+<td>节点所在的功能包名称</td>
+<td>在node标签中，<code>pkg=&quot;package-name&quot;</code></td>
+</tr>
+<tr>
+<td>type</td>
+<td>节点的可执行文件名称</td>
+<td>在node标签中，<code>type = &quot;executable-name&quot;</code></td>
+</tr>
+<tr>
+<td>name</td>
+<td>节点运行时的名称，会替换掉<code>ros::init</code>中设置好的节点名</td>
+<td>在node标签中，<code>name = &quot;talker&quot;</code></td>
+</tr>
+<tr>
+<td>output</td>
+<td>表示节点的日志是否在终端显示</td>
+<td>在node标签中，<code>output=&quot;screen&quot;</code></td>
+</tr>
+<tr>
+<td>respawn</td>
+<td>节点运行失败时自动重启</td>
+<td>在node标签中，<code>respawn = &quot;true&quot;</code></td>
+</tr>
+<tr>
+<td>required</td>
+<td>修饰的节点是启动的必须项，启动失败就会报错</td>
+<td>在node标签中，<code>required = &quot;true&quot;</code></td>
+</tr>
+<tr>
+<td>ns</td>
+<td>给节点设置一个命名空间</td>
+<td><code>&lt;rosparam file = &quot;params.yaml&quot; command = &quot;load&quot; ns = &quot;params/&quot;&gt;</code><br>前面就会多一个&quot;params/&quot;的命名空间。</td>
+</tr>
+<tr>
+<td>args</td>
+<td>通过命令行给main函数传递的参数</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;param&gt;</code>与<code>&lt;rosparam&gt;</code></td>
+<td>设置ROS系统运行中的参数，全局变量，存储在参数服务器中</td>
+<td><code>&lt;param name = &quot;output_frame&quot; value = &quot;odom&quot;/&gt;</code><br><code>&lt;rosparam file = &quot;params.yaml&quot; command = &quot;load&quot; ns = &quot;params/&quot;&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;arg&gt;</code></td>
+<td>launch文件内部的局部变量，仅限于launch文件使用</td>
+<td><code>&lt;arg name = &quot;arg-name&quot; default = &quot;arg-value&quot;/&gt;</code><br>调用:<br><code>&lt;param name = &quot;foo&quot; value = &quot;$(arg arg-name)&quot;/&gt;</code><br><code>&lt;node name=&quot;node&quot; pkg = &quot;package&quot; type = &quot;type&quot; args = &quot;$(arg arg-name)&quot;/&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;remap&gt;</code></td>
+<td>重映射ROS计算图资源的命名</td>
+<td><code>&lt;remap from = &quot;/turtlebot/cmd_vel&quot; to=&quot;/cmd_vel&quot;/&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;include&gt;</code></td>
+<td>包含其他launch文件，类似C语言中的头文件包含。<br>file:包含的其他launch文件路径</td>
+<td><code>&lt;include file=&quot;$(dirname)/other.launch&quot;&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>更多标签：<a target="_blank" rel="noopener" href="https://wiki.ros.org/roslaunch/XML">ROS wiki</a></p>
+<p>launch文件示例与分析：</p>
+<ul>
+<li>示例1：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 打开learning_communication包下的person_subscriber，并把节点重命名为talker --&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">&quot;learning_communication&quot;</span> <span class="attr">type</span>=<span class="string">&quot;person_subscriber&quot;</span> <span class="attr">name</span>=<span class="string">&quot;talker&quot;</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- 打开learning_communication包下的person_publisher，并把节点重命名为listener --&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">&quot;learning_communication&quot;</span> <span class="attr">type</span>=<span class="string">&quot;person_publisher&quot;</span> <span class="attr">name</span>=<span class="string">&quot;listener&quot;</span> /&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">	<span class="comment">&lt;!-- 全局变量turtle_number，值为2 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;/turtle_number&quot;</span>   <span class="attr">value</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 全局变量TurtleName1，值为&quot;Tom&quot; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">&quot;TurtleName1&quot;</span>  <span class="attr">default</span>=<span class="string">&quot;Tom&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 全局变量TurtleName2，值为&quot;Jerry&quot; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">&quot;TurtleName2&quot;</span>  <span class="attr">default</span>=<span class="string">&quot;Jerry&quot;</span> /&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 打开turtlesim包下的turtlesim_node，并把节点重命名为turtlesim_node --&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">&quot;turtlesim&quot;</span> <span class="attr">type</span>=<span class="string">&quot;turtlesim_node&quot;</span> <span class="attr">name</span>=<span class="string">&quot;turtlesim_node&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 调用局部变量，生成全局变量 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;turtle_name1&quot;</span>   <span class="attr">value</span>=<span class="string">&quot;$(arg TurtleName1)&quot;</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;turtle_name2&quot;</span>   <span class="attr">value</span>=<span class="string">&quot;$(arg TurtleName2)&quot;</span>/&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 加载参数文件 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">rosparam</span> <span class="attr">file</span>=<span class="string">&quot;$(find learning_launch)/config/param.yaml&quot;</span> <span class="attr">command</span>=<span class="string">&quot;load&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">node</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 打开turtlesim包下的turtle_teleop_key，并把节点重命名为turtle_teleop_key,并将日志生成到终端上 --&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">&quot;turtlesim&quot;</span> <span class="attr">type</span>=<span class="string">&quot;turtle_teleop_key&quot;</span> <span class="attr">name</span>=<span class="string">&quot;turtle_teleop_key&quot;</span> <span class="attr">output</span>=<span class="string">&quot;screen&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>其中的param.yaml为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">A:</span> <span class="number">123</span></span><br><span class="line"><span class="attr">B:</span> <span class="string">&quot;hello&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># group为一个命名空间</span></span><br><span class="line"><span class="attr">group:</span></span><br><span class="line">  <span class="attr">C:</span> <span class="number">456</span></span><br><span class="line">  <span class="attr">D:</span> <span class="string">&quot;hello&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>此时调用<code>rosparam list</code>，可以查看设置好的全局变量：</p>
+<img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/rosparamlist.JPG" alt="ROS param清单">
+<p>调用<code>rosparam get</code>可以查看全局变量具体的值：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/rosparamV.JPG" alt="ROS param value"></p>
+<ul>
+<li>示例3：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">&quot;$(find learning_launch)/launch/simple.launch&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">&quot;turtlesim&quot;</span> <span class="attr">type</span>=<span class="string">&quot;turtlesim_node&quot;</span> <span class="attr">name</span>=<span class="string">&quot;turtlesim_node&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 将&quot;/turtle1/cmd_vel&quot;的话题重映射为&quot;/cmd_vel&quot; --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">remap</span> <span class="attr">from</span>=<span class="string">&quot;/turtle1/cmd_vel&quot;</span> <span class="attr">to</span>=<span class="string">&quot;/cmd_vel&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">node</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>此时运行<code>rostopic list</code>，就会发现，原来名为<code>/turtle1/cmd_vel</code>的话题已经变成了<code>/cmd_vel</code>。</p>
+<p><code>$(find ...)</code>是用来定位到一个package，增强了项目的可移植性。若想在自己的项目中实现find，需要有<strong>CMakeLists.txt</strong>和<strong>package.xml</strong>，并对这两个文件进行编辑。参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44684139/article/details/108556537">实现launch中的find位置</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:jisu0012@student.umu.se">孙健耕</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hljmssjg.github.io/2022/01/10/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B004/">https://hljmssjg.github.io/2022/01/10/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B004/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hljmssjg.github.io" target="_blank">孙健耕的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ROS/">ROS</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/ROSlogo.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2022/01/01/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/ROSlogo.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">ROS学习笔记 03 ROS通信编程</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/12/23/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/" title="ROS学习笔记 01 ROS安装与环境配置"><img class="cover" src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/ROSlogo.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-23</div><div class="title">ROS学习笔记 01 ROS安装与环境配置</div></div></a></div><div><a href="/2021/12/25/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002/" title="ROS学习笔记 02 ROS的定义与核心概念"><img class="cover" src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/ROSlogo.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-25</div><div class="title">ROS学习笔记 02 ROS的定义与核心概念</div></div></a></div><div><a href="/2022/01/01/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003/" title="ROS学习笔记 03 ROS通信编程"><img class="cover" src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/ROSlogo.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-01</div><div class="title">ROS学习笔记 03 ROS通信编程</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/头像.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">孙健耕</div><div class="author-info__description">瑞典于默奥大学<br> Master of Science in Computing Science with Specialization Robotics and Control</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hljmssjg"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hljmssjg" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jisu0012@umu.student.se" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://umu.se" target="_blank" title="我的学校"><i class="fas fa-school"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/wechat.png" target="_blank" title="我的微信"><i class="fab fa-weixin"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">2021/10/27 所有图片源更换为github图床源：https://github.com/hljmssjg/PicGo</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">1. Launch启动文件</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/01/10/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B004/" title="ROS学习笔记 04 ROS通信编程"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/ROSlogo.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ROS学习笔记 04 ROS通信编程"/></a><div class="content"><a class="title" href="/2022/01/10/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B004/" title="ROS学习笔记 04 ROS通信编程">ROS学习笔记 04 ROS通信编程</a><time datetime="2022-01-10T01:36:00.000Z" title="发表于 2022-01-10 09:36:00">2022-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/01/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003/" title="ROS学习笔记 03 ROS通信编程"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/ROSlogo.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ROS学习笔记 03 ROS通信编程"/></a><div class="content"><a class="title" href="/2022/01/01/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003/" title="ROS学习笔记 03 ROS通信编程">ROS学习笔记 03 ROS通信编程</a><time datetime="2022-01-01T01:21:00.000Z" title="发表于 2022-01-01 09:21:00">2022-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/30/C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003/" title="C++学习笔记84-115 内存四区、重载、类和对象"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/C++logo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++学习笔记84-115 内存四区、重载、类和对象"/></a><div class="content"><a class="title" href="/2021/12/30/C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003/" title="C++学习笔记84-115 内存四区、重载、类和对象">C++学习笔记84-115 内存四区、重载、类和对象</a><time datetime="2021-12-30T01:33:13.000Z" title="发表于 2021-12-30 09:33:13">2021-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/27/C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002/" title="C++学习笔记72-83 通讯录管理系统"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/C++logo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++学习笔记72-83 通讯录管理系统"/></a><div class="content"><a class="title" href="/2021/12/27/C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002/" title="C++学习笔记72-83 通讯录管理系统">C++学习笔记72-83 通讯录管理系统</a><time datetime="2021-12-27T01:33:13.000Z" title="发表于 2021-12-27 09:33:13">2021-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/25/C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/" title="C++学习笔记01-71 C++入门"><img src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/C++logo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++学习笔记01-71 C++入门"/></a><div class="content"><a class="title" href="/2021/12/25/C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/" title="C++学习笔记01-71 C++入门">C++学习笔记01-71 C++入门</a><time datetime="2021-12-25T10:41:13.000Z" title="发表于 2021-12-25 18:41:13">2021-12-25</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/cat.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By 孙健耕</div><div class="footer_custom_text">欢迎来到我的博客！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      true && mermaid.init()
+    })
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7216158018" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="list" data-preload="none" data-autoplay="true" muted></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="false"></script><script id="canvas_nest" defer="defer" color="18,175,166" opacity="1" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SerokSSR/cdn/meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
