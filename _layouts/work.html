@@ -1,35 +1,68 @@
 <!DOCTYPE html>
 <html>
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
-    {% include header.html %}
+<body>
+{% include header.html %}
 
-    <div class="page-content">
-      <div class="wrapper">
-        <div class="work">
-          <h1 class="page-heading">{{ page.title }}</h1>
-          {{ content }}
+<div class="page-content">
+  <div class="wrapper">
+    <div class="work">
+      <h1 class="page-heading">{{ page.title }}</h1>
+      {{ content }}
 
-          {% for item in page.items %}
-          <div class="work-item">
-            <img
-              src="{{ item.image.src | absolute_url }}"
-              alt="{{ item.image.alt }}"
-              class="work-bubble"
-            />
-            <span class="work-text">
-              <strong>{{ item.title }}</strong>
-              &mdash;
-              {{ item.description }}
-            </span>
-          </div>
-          {% endfor %}
+      {% if page.sections %}
+      {% for section in page.sections %}
+      <h2 style="margin-top: 2em; color: darkslateblue;">{{ section.title }}</h2>
+
+      {% for item in section.items %}
+      <div class="work-item" style="margin-bottom: 2rem; display: flex; align-items: flex-start;">
+        {% if item.image %}
+        <img
+                src="{{ item.image.src | absolute_url }}"
+                alt="{{ item.image.alt }}"
+                class="work-bubble"
+                style="width: 180px; height: auto; margin-right: 16px; flex-shrink: 0;"
+        />
+        {% endif %}
+
+        <div class="work-details" style="flex-grow: 1;">
+          <h3 style="margin-top: 0; color: royalblue; font-weight: bold;">{{ item.title }}</h3>
+          {% if item.authors %}
+          <p style="margin-top: -1em; font-size: 14px; color: #555;">{{ item.authors }}</p>
+          {% endif %}
+          {% if item.description %}
+          <p style="margin-top: -1em;">{{ item.description }}</p>
+          {% endif %}
+          {% if item.journal %}
+          <p style="margin-top: -1em;">{{ item.journal }}</p>
+          {% endif %}
+
+          {% if item.links %}
+          <p style="margin-top: -1em;">
+            {% for link in item.links %}
+            <a
+                    class="work-button"
+                    href="{{ link.url }}"
+                    target="_blank"
+                    style="display: inline-block; margin: 2px 4px 2px 0; padding: 4px 8px; background-color: #007acc; color: white; text-decoration: none; border-radius: 3px; font-size: 0.8rem;"
+            >
+              {{ link.name }}
+            </a>
+            {% endfor %}
+          </p>
+          {% endif %}
         </div>
       </div>
-    </div>
+      {% endfor %}
+      {% endfor %}
+      {% endif %}
 
-    {% include footer.html %}
-    {% include foot.html %}
-  </body>
+    </div>
+  </div>
+</div>
+
+{% include footer.html %}
+{% include foot.html %}
+</body>
 </html>
