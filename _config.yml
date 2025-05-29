@@ -6,7 +6,7 @@ description: Personal webpage.
 baseurl: ""
 url: "https://hljmssjg.github.io"
 og_image: /assets/img/profile-pic.jpg
-#google_analytics: "UA-121636368-3"
+google_analytics: "UA-121636368-3"
 
 header:
   pages:
@@ -48,7 +48,7 @@ footer:
 # Build settings
 markdown: kramdown
 sass:
-    style: compressed
+    style: :compressed
 plugins:
   - jekyll-feed
 
