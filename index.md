@@ -10,7 +10,7 @@ I hold a Master’s degree in Robotics and Control from Umeå University in Swed
 
 I am interested in research on the building embodied AI. My current research interest contains Embodied AI, Diffusion Model, Reinforcement Learning and Sim2real. 
 
-For details on my project experience, publications, and more, please visit the Work page.
+**For details on my project experience, publications, and more, please visit the [Work](https://hljmssjg.github.io/work) page.**
 # Education
 **[Umeå universitet](https://www.umu.se/en/)**  
 Master’s Degree in Computing Science(Robotics and Control)  
