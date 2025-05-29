@@ -4,9 +4,9 @@
 title: Jiangeng Sun
 description: Personal webpage.
 baseurl: "/bay"
-url: "https://eliottvincent.github.io"
+url: "https://hljmssjg.github.io"
 og_image: /assets/img/profile-pic.jpg
-google_analytics: "UA-121636368-3"
+#google_analytics: "UA-121636368-3"
 
 header:
   pages:
