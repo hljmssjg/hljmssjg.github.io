@@ -48,5 +48,4 @@ sections:
 
 ---
 
-[//]: # (Papers sorted by recency. Authors with equal contribution are marked by *. Representative papers are highlighted.)
 
