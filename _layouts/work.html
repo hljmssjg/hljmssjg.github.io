@@ -19,7 +19,8 @@
       <div class="work-item" style="margin-bottom: 1rem; padding-bottom: 0.5rem; display: flex; align-items: flex-start;">
         {% if item.image %}
         <img
-                src="{{ item.image.src | absolute_url }}"
+
+                src="https://cdn.jsdelivr.net/gh/hljmssjg/PicGo@main/img/{{ item.image.src }}"
                 alt="{{ item.image.alt }}"
                 class="work-bubble"
                 style="width: 180px; height: auto; margin-right: 16px; flex-shrink: 0;"
