@@ -9,19 +9,19 @@ sections:
         authors: Hive Box, 2025
         description: Integrated advanced imitation learning methods, including ACT and Diffusion Policy, into a proprietary mobile base equipped with an So-100 robotic arm， enabling efficient manipulation in industrial tasks such as package picking and cloth folding.  
         image:
-          src: Lekiwi.gif
+          src: /assets/img/work/Lekiwi.gif
           alt: Hive Box robot project
       - title: "Humanoid Robot Locomotion Training"
         authors: Hive Box, 2024
         description: Train the Shanghai OpenLoong robot in the Legged Gym simulation to develop a smooth and graceful gait.
         image:
-          src: gait.gif
+          src: /assets/img/work/gait.gif
           alt: Humanoid robot project
       - title: "Sim2Real"
         authors: LimX Dynamics, 2024
         description: Developed an MLP-based model to predict joint Coulomb friction in quadruped robots, aiming to enhance low-speed locomotion performance on Unitree A1 and LimX Dynamics W1 platforms.
         image:
-          src: sim2real.gif
+          src: /assets/img/work/sim2real.gif
           alt: Sim2Real project
  
   - title: Publications
@@ -31,7 +31,7 @@ sections:
 
         journal: IEEE RO-MAN, WARN workshop, 2023
         image:
-          src: HRI.gif
+          src: /assets/img/work/HRI.gif
           alt: HRI project
         links:
           - name: Video
@@ -45,7 +45,7 @@ sections:
         authors: Jiangeng Sun
         journal: Proceedings of Umeå’s 26th Student Conference in Computing Science, 2023
         image:
-          src: uncanny.png
+          src: /assets/img/work/uncanny.png
           alt: Uncanny Valley project
         links:
           - name: Paper
