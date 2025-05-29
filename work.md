@@ -3,20 +3,23 @@ layout: work
 title: My project experience and publications
 slug: /work
 sections:
-#  - title: Projects
-#    items:
-#      - title: "Sim2Real"
-#        journal: LimX Dynamics
-#        image:
-#          src: /assets/img/work/HRI.gif
-#          alt: HRI project
-#        links:
-#          - name: Video
-#            url: https://play.umu.se/media/t/0_imcmru17
-#          - name: Paper
-#            url: https://umu.diva-portal.org/smash/record.jsf?pid=diva2%3A1798327&dswid=8373
-#          - name: Code
-#            url: https://github.com/hljmssjg/intelligentDialogueManagement    
+  - title: Projects
+    items:
+      - title: "Sim2Real"
+        authors: LimX Dynamics
+        description: Developed an MLP-based model to predict joint Coulomb friction in quadruped robots, aiming to enhance low-speed locomotion performance on Unitree A1 and LimX Dynamics W1 platforms.
+        image:
+          src: /assets/img/work/sim2real.gif
+          alt: Sim2Real project
+      - title: "Hive Box robot"
+        authors: Hive Box
+        description: Integrated advanced imitation learning methods, including ACT and Diffusion Policy, into a proprietary mobile base equipped with an SO-100 robotic arm， enabling efficient manipulation in industrial tasks such as package picking and cloth folding.
+
+        image:
+          src: /assets/img/work/Lekiwi.gif
+          alt: Hive Box robot project
+
+ 
   - title: Publications
     items:
       - title: "Personalised multi-modal communication for HRI"
