@@ -3,7 +3,7 @@
 
 title: Bay Jekyll Theme
 description: Bay is a minimal Jekyll Theme.
-baseurl: "/bay"
+baseurl: ""
 url: "https://eliottvincent.github.io"
 og_image: /assets/img/profile-pic.jpg
 google_analytics: "UA-121636368-3"
