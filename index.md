@@ -1,7 +1,7 @@
 ---
 layout: home
 profile_picture:
-  src: /assets/img/profile-pic.jpg
+  src: /assets/img/JG.jpeg
   alt: website picture
 ---
 I am an algorithm engineer at Hive Box, specializing in the field of embodied intelligence. My work involves controlling humanoid robot locomotion using reinforcement learning and employing imitation learning to control robotic arms for various industrial applications.
@@ -48,5 +48,10 @@ Server Testing(Intern)
 - Outstanding Student Union Leader, *Shenzhen University, Sep 2018*
 - Huaqiang Scholarship, *Shenzhen University, Sep 2016*
 
+# Interests
+When I’m not working with robots or coding, you’ll likely find me on a badminton court, at the gym (sometimes), or deep into a strategy game. **I reached Challenger rank with 1000+ LP in Sets 6, 8, 9, 12, and 13 of Teamfight Tactics**.
 
 
+<p align="center">
+  <img src="/assets/img/TFT.jpeg" alt="TFT" width="600" />
+</p>

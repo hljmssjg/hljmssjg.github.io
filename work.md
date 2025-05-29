@@ -1,24 +1,28 @@
 ---
 layout: work
-title: My project experience and publications
+title: Project experience and publications
 slug: /work
 sections:
   - title: Projects
     items:
+      - title: "Wheel-arm robot"
+        authors: Hive Box, 2025
+        description: Integrated advanced imitation learning methods, including ACT and Diffusion Policy, into a proprietary mobile base equipped with an So-100 robotic arm， enabling efficient manipulation in industrial tasks such as package picking and cloth folding.  
+        image:
+          src: /assets/img/work/Lekiwi.gif
+          alt: Hive Box robot project
+      - title: "Humanoid Robot Locomotion Training"
+        authors: Hive Box, 2024
+        description: Train the Shanghai OpenLoong robot in the Legged Gym simulation to develop a smooth and graceful gait.
+        image:
+          src: /assets/img/work/gait.gif
+          alt: Humanoid robot project
       - title: "Sim2Real"
-        authors: LimX Dynamics
+        authors: LimX Dynamics, 2024
         description: Developed an MLP-based model to predict joint Coulomb friction in quadruped robots, aiming to enhance low-speed locomotion performance on Unitree A1 and LimX Dynamics W1 platforms.
         image:
           src: /assets/img/work/sim2real.gif
           alt: Sim2Real project
-      - title: "Hive Box robot"
-        authors: Hive Box
-        description: Integrated advanced imitation learning methods, including ACT and Diffusion Policy, into a proprietary mobile base equipped with an SO-100 robotic arm， enabling efficient manipulation in industrial tasks such as package picking and cloth folding.
-
-        image:
-          src: /assets/img/work/Lekiwi.gif
-          alt: Hive Box robot project
-
  
   - title: Publications
     items:
@@ -51,5 +55,5 @@ sections:
 
 ---
 
-[//]: # (Papers sorted by recency. Authors with equal contribution are marked by *. Representative papers are highlighted.)
+Project experience and publications, sorted by recency. 
 
