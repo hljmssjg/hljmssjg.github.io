@@ -1,12 +1,12 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
-title: Jiangeng Sun
-description: Personal webpage.
-baseurl: "/"
-url: "https://hljmssjg.github.io"
+title: Bay Jekyll Theme
+description: Bay is a minimal Jekyll Theme.
+baseurl: "/bay"
+url: "https://eliottvincent.github.io"
 og_image: /assets/img/profile-pic.jpg
-#google_analytics: "UA-121636368-3"
+google_analytics: "UA-121636368-3"
 
 header:
   pages:
