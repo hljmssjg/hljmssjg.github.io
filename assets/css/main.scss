@@ -1,13 +1,12 @@
 ---
 # Only the main Sass file needs Front Matter
-$base-url: "{{ site.baseurl }}";
 
 ---
 
 @charset "utf-8";
 
 @use "variables" with (
-  $base-url
+  $base-url: "{{ site.baseurl }}"
 );
 @use "mixins";
 @use "extends";
