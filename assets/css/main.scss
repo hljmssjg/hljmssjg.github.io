@@ -7,7 +7,7 @@ $base-url: "{{ site.baseurl }}";
 @charset "utf-8";
 
 @use "variables" with (
-  $base-url: $base-url
+  $base-url
 );
 @use "mixins";
 @use "extends";
