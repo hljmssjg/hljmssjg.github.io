@@ -135,9 +135,10 @@
 
 .footer-col-1,
 .footer-col-2,
-.footer-col-3 {
-  width: -webkit-calc(33% - (#{variables.$spacing-unit} / 2));
-  width: calc(33% - (variables.$spacing-unit / 2));
+.footer-col-3,
+.footer-col-4 {
+  width: -webkit-calc(25% - (#{variables.$spacing-unit} / 2));
+  width: calc(25% - (variables.$spacing-unit / 2));
 }
 
 .follow-links > .social-link {
