@@ -12,35 +12,101 @@ I am interested in research on the building embodied AI. My current research int
 
 **For details on my project experience, publications, and more, please visit the [Work](https://hljmssjg.github.io/work) page.**
 # Education
-**[Umeå universitet](https://www.umu.se/en/)**  
-Master’s Degree in Computing Science(Robotics and Control)  
-*Thesis: [Intelligible dialogue manager for social robots](https://umu.diva-portal.org/smash/record.jsf?pid=diva2%3A1796887&dswid=-9588)*  
-*Supervisor: [Thomas hellström](https://www.umu.se/en/staff/thomas-hellstrom/), [Suna Bensch](https://www.umu.se/en/staff/suna-bensch/)*  
-*Sep 2023 | Umeå, Sweden*
 
-**[Umeå universitet](https://www.umu.se/en/)**  
-Bachelor's degree in Physics  
-*Thesis: [A Simulation of Covid-19 Epidemic’s Second Wave Based on a Deterministic Seir Model](https://umu.diva-portal.org/smash/record.jsf?dswid=-9588&pid=diva2%3A1569573&c=1&searchType=UNDERGRADUATE&language=en&query=&af=%5B%5D&aq=%5B%5B%7B%22author%22%3A%5B%22Sun%2C+Jiangeng%22%5D%7D%5D%5D&aq2=%5B%5B%5D%5D&aqe=%5B%5D&noOfRows=50&sortOrder=author_sort_asc&sortOrder2=title_sort_asc&onlyFullText=false&sf=all)*  
-*Supervisor: [Martin Rosvall](https://www.umu.se/en/staff/martin-rosvall/)*  
-*Jul 2020 | Umeå, Sweden*
 
-**[Shenzhen University](https://www.szu.edu.cn/)**  
-Bachelor’s degree in Electronic Science and Technology  
-*Note: Double degree*  
-*Jul 2020 | Shenzhen, China*
+
+<div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+  <img src="/assets/img/umu.png" alt="school icon" style="width: 64px; height: 64px; margin-right: 15px;" />
+  <div>
+    <strong><a href="https://umu.se/">Umeå universitet</a></strong>  
+    <br />
+    Master’s Degree in Computing Science (Robotics and Control)  
+    <br />
+    <em>Thesis:</em>
+    <a href="https://umu.diva-portal.org/smash/record.jsf?pid=diva2%3A1796887&dswid=4253" style="font-style: italic;">
+      Intelligible dialogue manager for social robots
+    </a>
+    <br />
+    <em>Supervisor:</em>
+    <a href="https://www.umu.se/en/staff/thomas-hellstrom/" style="font-style: italic;">
+      Thomas Hellström
+    </a>,
+    <a href="https://www.umu.se/en/staff/suna-bensch/" style="font-style: italic;">
+      Suna Bensch
+    </a>
+    <br />
+    <em>Sep 2023 | Umeå, Sweden</em>  
+  </div>
+</div>
+
+<div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+  <img src="/assets/img/umu.png" alt="school icon" style="width: 64px; height: 64px; margin-right: 15px;" />
+  <div>
+    <strong><a href="https://umu.se/">Umeå universitet</a></strong>  
+    <br />
+    Bachelor's degree in Physics    
+    <br />
+    <em>Thesis:</em>
+    <a href="https://umu.diva-portal.org/smash/record.jsf?dswid=-9588&pid=diva2%3A1569573&c=1&searchType=UNDERGRADUATE&language=en&query=&af=%5B%5D&aq=%5B%5B%7B%22author%22%3A%5B%22Sun%2C+Jiangeng%22%5D%7D%5D%5D&aq2=%5B%5B%5D%5D&aqe=%5B%5D&noOfRows=50&sortOrder=author_sort_asc&sortOrder2=title_sort_asc&onlyFullText=false&sf=all" style="font-style: italic;">
+      A Simulation of Covid-19 Epidemic’s Second Wave Based on a Deterministic Seir Model
+    </a>
+    <br />
+    <em>Supervisor:</em>
+    <a href="https://www.umu.se/en/staff/martin-rosvall/" style="font-style: italic;">
+      Martin Rosvall
+    </a>
+    <br />
+    <em>Jul 2020 | Umeå, Sweden</em>  
+  </div>
+</div>
+
+<div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+  <img src="/assets/img/szu.png" alt="school icon" style="width: 64px; height: 64px; margin-right: 15px;" />
+  <div>
+    <strong><a href="https://www.szu.edu.cn/">Shenzhen University</a></strong>  
+    <br />
+    Bachelor’s degree in Electronic Science and Technology 
+    <br />
+    <em>Note: Double degree</em>
+    <br />
+    <em>Jul 2020 | Shenzhen, China</em>  
+  </div>
+</div>
 
 # Work Experience
-**[Hive Box](https://fcbox.com/)**  
-Algorithm Engineer  
-*Jul 2024 - Present | Shenzhen, China*  
+<div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+  <img src="/assets/img/fc_icon.png" alt="job icon" style="width: 64px; height: 64px; margin-right: 15px;" />
+  <div>
+    <strong><a href="https://fcbox.com/">Hive Box</a></strong>  
+    <br />
+    Algorithm Engineer 
+    <br />
+    <span style="font-style: italic;">Jul 2024 - Present | Shenzhen, China</span>
+  </div>
+</div>
 
-**[LimX Dynamics](https://limxdynamics.com/)**  
-Algorithm Engineer  
-*Nov 2023 - June 2024 | Shenzhen, China*  
+<div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+  <img src="/assets/img/limx.png" alt="job icon" style="width: 64px; height: 64px; margin-right: 15px;" />
+  <div>
+    <strong><a href="https://limxdynamics.com/">LimX Dynamics</a></strong>  
+    <br />
+    Algorithm Engineer 
+    <br />
+    <span style="font-style: italic;">Nov 2023 - June 2024 | Shenzhen, China</span>
+  </div>
+</div>
 
-**[China Greatwall Technology Group Co., Ltd](https://www.greatwall.com.cn/)**  
-Server Testing(Intern)  
-*Jul 2019 - Aug 2019 | Shenzhen, China*  
+<div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+  <img src="/assets/img/greatwall.jpeg" alt="job icon" style="width: 64px; height: 64px; margin-right: 15px;" />
+  <div>
+    <strong><a href="https://www.greatwall.com.cn/">China Greatwall Technology Group Co., Ltd</a></strong>  
+    <br />
+    Server Testing(Intern)  
+    <br />
+    <span style="font-style: italic;">Jul 2019 - Aug 2019 | Shenzhen, China</span>
+  </div>
+</div>
+
 
 # Awards
 
