@@ -29,7 +29,7 @@ sections:
       - title: "Personalised multi-modal communication for HRI"
         authors: Suna Bensch, Jiangeng Sun, Juan Pedro Bandera Rubio, Adrián Romero-Garcés, Thomas Hellström
 
-        journal: IEEE RO-MAN, WARN workshop, 2023
+        journal: IEEE International Conference on Robot and Human Interactive Communication(RO-MAN), WARN workshop, 2023
         image:
           src: /assets/img/work/HRI.gif
           alt: HRI project
@@ -43,7 +43,7 @@ sections:
             
       - title: "The Uncanny Valley Effect in Zoomorphic Robots: Univariate analysis"
         authors: Jiangeng Sun
-        journal: Proceedings of Umeå’s 26th Student Conference in Computing Science, 2023
+        journal: Proceedings of Umeå’s 26th Student Conference in Computing Science(USCCS), 2023
         image:
           src: /assets/img/work/uncanny.png
           alt: Uncanny Valley project
