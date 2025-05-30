@@ -17,6 +17,10 @@
 
 .footer-col {
   font-size: 12px;
+  flex: 1 1 25%;
+  min-width: 150px; // 防止列太小挤在一起
+  padding: 0 10px;
+  box-sizing: border-box;
 
   h4 {
     margin-bottom: 0;
