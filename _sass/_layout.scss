@@ -120,10 +120,6 @@
 }
 
 .footer-col-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; /* 或 space-evenly */
-  gap: 20px; /* 控制列之间的水平间距 */
   font-size: 15px;
   color: variables.$color-grey;
   margin-left: calc(-1 * variables.$spacing-unit / 2);
