@@ -8,7 +8,7 @@ I am an algorithm engineer at Hive Box, specializing in the field of embodied in
 
 I hold a Master’s degree in Robotics and Control from Umeå University in Sweden. Before that, I participated in an exchange program during my fourth undergraduate year at Shenzhen University and earned dual Bachelor's degrees: one in Physics from Umeå University and another in Electronic Science and Technology from Shenzhen University. In addition, I have held previous positions at Great Wall and LimX Dynamics.
 
-I am interested in research on the building embodied AI. My current research interest contains Embodied AI, Diffusion Model, Reinforcement Learning and Sim2real. 
+I am interested in research on the building embodied AI. My current research interest contains Embodied AI, Diffusion Model, Reinforcement Learning and Sim2Real. 
 
 **For details on my project experience, publications, and more, please visit the [Work](https://hljmssjg.github.io/work) page.**
 # Education
