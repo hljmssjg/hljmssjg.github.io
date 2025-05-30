@@ -38,7 +38,7 @@ Algorithm Engineer
 Algorithm Engineer  
 *Nov 2023 - June 2024 | Shenzhen, China*  
 
-**[China Greatwall Technology Group Co., Ltd]((https://www.greatwall.com.cn/))**  
+**[China Greatwall Technology Group Co., Ltd](https://www.greatwall.com.cn/)**  
 Server Testing(Intern)  
 *Jul 2019 - Aug 2019 | Shenzhen, China*  
 
