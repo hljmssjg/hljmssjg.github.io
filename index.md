@@ -11,10 +11,10 @@ I hold a Master’s degree in Robotics and Control from Umeå University in Swed
 I am interested in research on the building embodied AI. My current research interest contains Embodied AI, Diffusion Model, Reinforcement Learning and Sim2Real. 
 
 **For details on my project experience, publications, and more, please visit the [Work](https://hljmssjg.github.io/work) page.**
+
+---
+
 # Education
-
-
-
 <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
   <img src="/assets/img/umu.png" alt="school icon" style="width: 64px; height: 64px; margin-right: 15px;" />
   <div>
@@ -73,6 +73,8 @@ I am interested in research on the building embodied AI. My current research int
   </div>
 </div>
 
+---
+
 # Work Experience
 <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
   <img src="/assets/img/fc_icon.png" alt="job icon" style="width: 64px; height: 64px; margin-right: 15px;" />
@@ -107,12 +109,15 @@ I am interested in research on the building embodied AI. My current research int
   </div>
 </div>
 
+---
 
 # Awards
 
 - Overseas Exchange Study Scholarship in 2020, *Shenzhen University, Dec 2019*
 - Outstanding Student Union Leader, *Shenzhen University, Sep 2018*
 - Huaqiang Scholarship, *Shenzhen University, Sep 2016*
+
+---
 
 # Interests
 When I’m not working with robots or coding, you’ll likely find me on a badminton court, at the gym (sometimes), or deep into a strategy game. **I reached Challenger rank with 1000+ LP in Sets 6, 8, 9, 12, and 13 of Teamfight Tactics**.

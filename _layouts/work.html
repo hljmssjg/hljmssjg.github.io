@@ -13,7 +13,8 @@
 
       {% if page.sections %}
       {% for section in page.sections %}
-      <h2 style="margin-top: 0em; color: darkslateblue;">{{ section.title }}</h2>
+      <hr>
+      <h2 style="margin-top: 0em;">{{ section.title }}</h2>
 
       {% for item in section.items %}
       <div class="work-item" style="margin-bottom: 1rem; padding-bottom: 0.5rem; display: flex; align-items: flex-start;">
