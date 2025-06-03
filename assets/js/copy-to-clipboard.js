@@ -1,17 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 只选择在 <pre> 里的 <code> 标签，排除行内代码
     var codeBlocks = document.querySelectorAll('pre > code');
 
     codeBlocks.forEach(function(codeBlock) {
         var button = document.createElement('button');
         button.textContent = 'Copy';
-        button.classList.add('copy-button'); // 添加按钮样式类
+        button.classList.add('copy-button');
         codeBlock.parentNode.insertBefore(button, codeBlock.nextSibling);
 
         var clipboard = new ClipboardJS(button, {
-            target: function (trigger) {
-                // 复制父元素 <pre> 的文本内容
-                return trigger.previousSibling.parentNode;
+            target: function(trigger) {
+                return trigger.previousSibling;  // 只复制 <code> 内容
             }
         });
 
