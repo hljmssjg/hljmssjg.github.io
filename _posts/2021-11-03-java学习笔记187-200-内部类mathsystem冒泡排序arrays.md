@@ -3,7 +3,7 @@ layout: post
 title: "java学习笔记187-200 内部类、Math，System，冒泡排序，Arrays"
 date: 2021-11-03 09:51:33
 blurb: "根据B站学习的Java学习笔记，从第187集到第200集"
-og_image: https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/cat.jpg
+og_image: /assets/img/content/post-example/Banner.jpg
 ---
 # 前言
 b站java课程学习笔记整理。

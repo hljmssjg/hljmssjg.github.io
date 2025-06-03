@@ -3,7 +3,7 @@ layout: post
 title: "java学习笔记257-271 Map，Collections，斗地主"
 date: 2021-11-07 15:50:53
 blurb: "根据B站学习的Java学习笔记，从第257集到第271集"
-og_image: https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/cat.jpg
+og_image: /assets/img/content/post-example/Banner.jpg
 ---
 # 前言
 b站java课程学习笔记整理。

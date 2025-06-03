@@ -3,7 +3,7 @@ layout: post
 title: "java学习笔记99-133： 标准类的制作，String和StringBuilder"
 date: 2021-10-28 18:56:27
 blurb: "根据B站学习的Java学习笔记，从第99集到第133集"
-og_image: https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/cat.jpg
+og_image: /assets/img/content/post-example/Banner.jpg
 ---
 # 前言
 b站java课程学习笔记整理。

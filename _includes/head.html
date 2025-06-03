@@ -24,10 +24,16 @@
 
   {% assign page_url = page.url | replace: "index.html","" | replace: ".html","" | prepend: site.baseurl | prepend: site.url %}
 
-  {% assign page_image = site.og_image | prepend: site.baseurl | prepend: site.url %}
   {% if page.og_image %}
-    {% assign page_image = site.url + page.og_image %}
+    {% if page.og_image contains 'http' %}
+      {% assign page_image = page.og_image %}
+    {% else %}
+      {% assign page_image = site.url | append: page.og_image %}
+    {% endif %}
+  {% else %}
+    {% assign page_image = site.url | append: site.baseurl | append: site.og_image %}
   {% endif %}
+
 
   {% for follow in site.footer.follow %}
     {% if follow.type == 'twitter' %}

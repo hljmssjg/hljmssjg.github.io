@@ -3,7 +3,7 @@ layout: post
 title: "java学习笔记01-09 java和notepad的安装，hello world案例"
 date: 2021-10-26 16:08:13
 blurb: "根据B站学习的Java学习笔记，从第1集到第9集"
-og_image: https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/cat.jpg
+og_image: /assets/img/content/post-example/Banner.jpg
 ---
 # 前言
 b站java课程学习笔记整理。

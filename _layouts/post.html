@@ -27,7 +27,15 @@
             <p class="post-meta"><span class="post-date">{{ page.date | date: "%B %-d, %Y" }}
             </span>{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
           </header>
-
+          {% if page.og_image %}
+          <div class="post-cover">
+            <img
+                    src="{% if page.og_image contains 'http' %}{{ page.og_image }}{% else %}{{ page.og_image | absolute_url }}{% endif %}"
+                    alt="封面图"
+                    class="post-banner"
+            />
+          </div>
+          {% endif %}
           <article class="post-content">
             {{ content }}
           </article>
