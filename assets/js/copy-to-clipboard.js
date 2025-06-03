@@ -1,33 +1,29 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var codeBlocks = document.querySelectorAll('pre > code');
-
-    codeBlocks.forEach(function(codeBlock) {
-        var button = document.createElement('button');
+document.addEventListener('DOMContentLoaded', function() {
+    // 为所有代码块添加 Copy 按钮
+    document.querySelectorAll('pre > code').forEach(function(codeBlock) {
+        const pre = codeBlock.parentNode;
+        const button = document.createElement('button');
+        button.className = 'copy-button';
         button.textContent = 'Copy';
-        button.classList.add('copy-button');
-        codeBlock.parentNode.insertBefore(button, codeBlock.nextSibling);
+        pre.appendChild(button); // 插入到 <pre> 内部
 
-        var clipboard = new ClipboardJS(button, {
-            target: function(trigger) {
-                return trigger.previousSibling;  // 只复制 <code> 内容
-            }
+        // 初始化 ClipboardJS
+        const clipboard = new ClipboardJS(button, {
+            target: () => codeBlock // 复制 <code> 内容
         });
 
-        clipboard.on('success', function (e) {
+        // 复制成功提示
+        clipboard.on('success', function(e) {
             e.clearSelection();
-            var notification = document.createElement('div');
+            const notification = document.createElement('div');
+            notification.className = 'copy-notification';
             notification.textContent = 'Copied!';
-            notification.classList.add('notification');
             document.body.appendChild(notification);
-            setTimeout(function () {
-                notification.style.opacity = '0';
-                setTimeout(function () {
-                    document.body.removeChild(notification);
-                }, 1000);
-            }, 1000);
+            setTimeout(() => notification.remove(), 2000);
         });
 
-        clipboard.on('error', function (e) {
+        // 复制失败提示（可选）
+        clipboard.on('error', function(e) {
             console.error('复制失败:', e.action);
         });
     });
