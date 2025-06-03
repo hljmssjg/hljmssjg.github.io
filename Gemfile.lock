@@ -70,6 +70,8 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
+    jekyll-diagrams (0.10.0)
+      jekyll (>= 3.8, < 5.0)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-sass-converter (3.0.0)
@@ -185,6 +187,7 @@ DEPENDENCIES
   base64
   csv
   jekyll (~> 4.3.4)
+  jekyll-diagrams
   jekyll-feed (~> 0.17)
   logger
   tzinfo (~> 1.2)
