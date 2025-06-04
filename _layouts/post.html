@@ -8,6 +8,11 @@
     <div class="page-content">
       <div class="wrapper">
         <div class="post">
+          {% if page.toc %}
+          <nav class="toc-fixed">
+            {{ content | toc_only }}
+          </nav>
+          {% endif %}
 
           <header class="post-header">
 

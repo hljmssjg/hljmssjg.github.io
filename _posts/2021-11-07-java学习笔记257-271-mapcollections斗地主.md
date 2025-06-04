@@ -4,13 +4,14 @@ title: "java学习笔记257-271 Map，Collections，斗地主"
 date: 2021-11-07 15:50:53
 blurb: "根据B站学习的Java学习笔记，从第257集到第271集"
 og_image: /assets/img/content/post-example/Banner.jpg
+toc: true  
 ---
-# 前言
+## 前言
 b站java课程学习笔记整理。
 
 b站视频: [黑马程序员全套Java教程_Java基础入门视频教程，零基础小白自学Java必备教程]( https://www.bilibili.com/video/BV18J411W7cE?p=9)
 
-# 257. Map集合概述和特点
+## 257. Map集合概述和特点
 
 `Map`集合概述:
 `Interface Map<K,V> `     其中 K: 键的类型； V：值的类型。
@@ -44,7 +45,7 @@ public class MapDemo {
 
 ```
 
-# 258. Map集合的基本功能
+## 258. Map集合的基本功能
 
 |方法名|说明|
 |:---:|:---:|
@@ -99,7 +100,7 @@ public class MapDemo {
 
 ```
 
-# 259. Map集合的获取功能
+## 259. Map集合的获取功能
 
 |方法名|说明|
 |:---:|:---:|
@@ -140,7 +141,7 @@ public class MapDemo2 {
 
 ```
 
-# 260. Map集合的遍历（方式1）
+## 260. Map集合的遍历（方式1）
 遍历`key`。
 
 ```java
@@ -170,7 +171,7 @@ public class MapDemo2 {
 }
 
 ```
-# 261. Map集合的遍历（方式2）
+## 261. Map集合的遍历（方式2）
 通过`map`集合中所有键值对对象的集合。
 
 `Set<Map.Entry<K,V>> entrySet()`: 获取所有键值对对象的集合。
@@ -212,7 +213,7 @@ public class MapDemo2 {
 
 ```
 
-# 262. HashMap存储学生对象并遍历
+## 262. HashMap存储学生对象并遍历
 
 ```java
 package hashmap存储学生对象;
@@ -254,7 +255,7 @@ public class HashMapDemo {
 }
 
 ```
-# 263. 键是Student，值是String
+## 263. 键是Student，值是String
 
 需求:创建一个`HashMap`集合，键是学生对象(`Student`)，值是居住地(`String`)。存储多个键值对元素，并遍历。要求保证键的唯一性。
 
@@ -365,7 +366,7 @@ public class HashMapDemo {
 ```
 
 
-# 264. Arraylist嵌套HashMap
+## 264. Arraylist嵌套HashMap
 需求: 创建一个`ArrayList`集合，存储三个元素，每一个元素都是`HashMap`，每一个`HashMap`的键和值都是`String`，并遍历。
 
 ```java
@@ -429,7 +430,7 @@ public class AHDemo {
 
 注意:`HashMap`是`Map`的主要实现类，可以通过哈希值自定义去除重复元素。
 
-# 265.HashMap嵌套Arraylist
+## 265.HashMap嵌套Arraylist
 
 需求:创建一个`HashMap`集合，存储三个键值对元素，每一个键值对元素的键是`String`，值是`ArrayList`，每一个`ArrayList`的元素是`String`，并遍历。
 
@@ -476,7 +477,7 @@ public class HashMapInArrayList {
 
 ```
 
-# 266. 统计字符串中每个字符出现的次数
+## 266. 统计字符串中每个字符出现的次数
 
 举例：键盘录入"aababcabcdabcde"， 输出"a(5)b(4)c(3)d(2)e(1)"。
 
@@ -518,7 +519,7 @@ public class Statistics {
 
 个人觉得用`containsKey`来判断更好一点。最后不用调用`remove`方法去除旧的键值对，因为`HashMap`继承了`Map`，键不能重复，如果有重复的会自动更新。
 
-# 267. Collections概述和使用
+## 267. Collections概述和使用
 
 此类全部都由静态方法构成，为针对集合操作的工具类。注意和`Collection`区分（`Collection`是用来构造单列结合的）。
 
@@ -562,7 +563,7 @@ public class CollectionsDemo {
 
 ```
 
-# 268. ArrayList存储学生对象并排序
+## 268. ArrayList存储学生对象并排序
 
 需求: 按照年龄大小排序，年龄相同时，按照姓名的字母顺序排序。 注意之前的排序案例中是用`TreeSet`做的！
 
@@ -608,7 +609,7 @@ public class test {
 
 ```
 
-# 269. 模拟斗地主
+## 269. 模拟斗地主
 
 需求：通过程序实现斗地主过程中的洗牌，发牌和看牌。
 
@@ -687,7 +688,7 @@ public class DouDiZhu {
 ```
 分析:这么搞没有排序，而且没有面向对象编程。
 
-# 270. 模拟斗地主升级版思路
+## 270. 模拟斗地主升级版思路
 
 尝试对牌排序。
 
@@ -700,7 +701,7 @@ public class DouDiZhu {
 6. 发牌（发的也是编号，为了保证编号是排序的，创建`TreeSet`集合接收）。
 7. 定义方法看牌（遍历`TreeSet`集合，获取编号，到`HashMap`集合找对应的牌）
 ![模拟斗地主升级版思路](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/模拟斗地主升级版.JPG)
-# 271. 模拟斗地主升级版代码
+## 271. 模拟斗地主升级版代码
 
 ```java
 package 模拟斗地主升级版;

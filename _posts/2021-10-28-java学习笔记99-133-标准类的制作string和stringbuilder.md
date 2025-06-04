@@ -4,14 +4,15 @@ title: "java学习笔记99-133： 标准类的制作，String和StringBuilder"
 date: 2021-10-28 18:56:27
 blurb: "根据B站学习的Java学习笔记，从第99集到第133集"
 og_image: /assets/img/content/post-example/Banner.jpg
+toc: true  
 ---
-# 前言
+## 前言
 b站java课程学习笔记整理。
 
 b站视频: [黑马程序员全套Java教程_Java基础入门视频教程，零基础小白自学Java必备教程]( https://www.bilibili.com/video/BV18J411W7cE?p=9)
 
 
-#  99. 类和对象
+##  99. 类和对象
 
 没有对象就`new`一个！
 
@@ -20,18 +21,18 @@ b站视频: [黑马程序员全套Java教程_Java基础入门视频教程，零�
 |一个**具体的**东西| 有相同的**属性**和**行为**的**对象**的集合 |对象的特征，每个属性都有特定的值|对象能干什么|
 | 我的手机 | 手机类 |手机的价格是229元 | 可以打电话 |
 
-#  100. 类的定义
+##  100. 类的定义
 类是java的基本组成单位。类的组成：属性和行为。
 1. 属性:在类中通过**成员变量**来体现（类中方法外的变量）。
 2. 行为:在类中通过**成员方法**来体现（和前面的方法相比**去掉`static`**关键字即可）。
 
 定义:
 ![类的定义](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/类的定义.JPG)
-#  101. 对象的使用
+##  101. 对象的使用
 对象的使用：
 ![对象的使用](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/对象的使用.JPG)
 
-#  102. 学生
+##  102. 学生
 
 首先定义一个学生类，然后在学生测试类中定义一个对象（具体的学生），在学生类中完成成员变量和方法的使用。
 
@@ -76,18 +77,18 @@ public class StudentTest {
 
 注意，如果在使用成员变量时不赋值，输出的是默认值。`string`是`null`，数值类是`0`；
 
-#  103. 单个对象的内存图
+##  103. 单个对象的内存图
 ![单个对象的内存图](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/单个对象的地址.JPG)
 总结:` new`的使用使用堆内存储存，对象代表的是堆内存的地址。
 
 ![单个对象的方法调用](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/单个对象的method.JPG)
-#  104. 多个对象的内存图
+##  104. 多个对象的内存图
 ![多个对象的内存图1](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/多个对象内存图1.JPG)
 ![多个对象的内存图2](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/多个对象的输出2.JPG)
-#  105. 多个对象指向相同内存图
+##  105. 多个对象指向相同内存图
 ![多个对象的指向相同](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/多个指向相同.JPG)
 和数组那个例子一样。
-#  106. 成员变量和局部变量的区别
+##  106. 成员变量和局部变量的区别
 ![成员变量和局部变量](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/成员变量和局部变量.JPG)
 
 比较:
@@ -101,17 +102,17 @@ public class StudentTest {
 | 初始化值 | 可以有系统给的默认的 | 没有默认的 |
 
 
-#  107-108. private
+##  107-108. private
 可以修饰成员变量和成员方法。作用是保护成员不被别的类使用，被`private`修饰只能在本类使用。
 
 如果想被别的类使用，可以:
 1. 提供`get变量名()`方法，用于获取成员变量的值，用`public`修饰。
 2. 提供`set变量名()`方法，用于设置成员变量的值，用`public`修饰。
 
-#  109. this
+##  109. this
 解决**名字相同**时，局部变量无法赋值给成员变量的问题。 this被哪个方法调用，指定的就是哪个对象。（对象.xxx不就是成员变量的读取么！）
 
-#  110. this内存原理
+##  110. this内存原理
 ![this的堆栈内存原理](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/使用This的堆栈.JPG)
 
 核心思想就是`This`是指调用方法的对象。
@@ -152,14 +153,14 @@ public class StudentTest {
 }
 
 ```
-# 111. 封装
+## 111. 封装
 封装是面向对象的三大对象之一（封装，继承，多态）。 封装原则：使用`private`修饰，然后使用`get`、`set`方法。
 
 封装的好处：提高了代码的安全性和复用性。
-# 112. 构造方法
+## 112. 构造方法
 构造方法本质上是对调用这个类创建一个对象进行了条件约束（必须满足什么样的条件才能创建对象）。
 ![构造方法](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/构造方法.JPG)
-# 113. 构造方法的注意事项
+## 113. 构造方法的注意事项
 当一个类中没有写构造方法，系统会给一个无参的构造方法。如果已经定义了有参构造，系统就不会再提供无参的构造了。
 ```java
 package 学生;
@@ -226,22 +227,22 @@ public class StudentTest {
 
 总结：对象的构造方法本质上也是一种成员方法，书写的格式和书写成员方法的相同，只不过构造方法的方法名要和类名一致。本质上也是一种重载。
 在自己写代码时建议手动给出无参方法构建。
-# 114. 标准类的制作
+## 114. 标准类的制作
 ![标准类的制作](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/标准类的制作.JPG)
-# 115. API
+## 115. API
 API应用程序编程接口：厂商提供给应用程序编程的接口，把这些类称为api。Java API指的是 Java JDK中提供各种功能的Java类。
 
 之前用的nextInt()就是使用了API。
-# 116. API练习-帮助文档
+## 116. API练习-帮助文档
 根据帮助文档学习`Scanner`使用。
 
 文档地址：[点这里]( https://docs.oracle.com/en/java/javase/17/)
 
 `sc.nextLine();` 按下`Ctrl Alt V `自动生成对象。
 
-# 117. String
+## 117. String
 ![字符串概述](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/字符串概述.JPG)
-# 118. String构造方法
+## 118. String构造方法
 ```java
 package 字符串构建;
 
@@ -271,11 +272,11 @@ public class StringDemo {
 }
 
 ```
-# 119. String对象的特点
+## 119. String对象的特点
 ![String对象的特点](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/String对象的特点.JPG)
 
 总结：`new`的会新建一个地址值，直接赋值相同字符串的话只会指向之前生成好的地址值。
-# 120. 字符串的比较
+## 120. 字符串的比较
 
 直接`==`比较的是地址值是否相同。比较内容是否相同用`equals()`
 
@@ -306,7 +307,7 @@ public class StringCompare {
 }
 ```
 
-# 121. 用户登录
+## 121. 用户登录
 
 需求:已知用户名和密码，用程序实现登录。一共三次机会，登陆成功后给出提示。
 
@@ -358,7 +359,7 @@ public class LoglInTest {
 
 ```
 
-# 122. 遍历字符串
+## 122. 遍历字符串
 
 要求: 程序输入一个字符串，在控制台遍历
 
@@ -381,7 +382,7 @@ public class bianlistring {
 }
 ```
 
-# 123. 案例：统计字符次数
+## 123. 案例：统计字符次数
 需求：键盘录入一个字符串，统计该字符串中大写字母字符，小写字母字符，数字字符出现的次数。
 
 注意：既然 `==` 直接比较的是ASCII值，那么`<= `也是可以直接比较地址值！
@@ -417,7 +418,7 @@ public class CalculateChar {
 
 ```
 
-# 124. 案例：拼接字符串
+## 124. 案例：拼接字符串
 需求:定义一个方法，把int数组中的数据按照指定的格式拼接成一个字符串返回。
 
 ```java
@@ -457,7 +458,7 @@ public class JointTest {
 ```
 
 注意： 字符串直接加数组中的`int` 数值，是可以的。本质上和`sout("字符" + 数字)`可以正常输出是一个道理。数字被自动转换为字符了。
-# 125. 案例：字符串反转
+## 125. 案例：字符串反转
 键盘录用一个字符串，调用该方法，实现字符串反转。
 ```java
 package 字符串反转;
@@ -485,7 +486,7 @@ public class ConvertTest {
 }
 
 ```
-# 126. 帮助文档查看String方法
+## 126. 帮助文档查看String方法
 `String replace(char oldChar, char newChar)`
 用新字符`newChar `替换所有的 旧字符`oldChar` 。
 
@@ -500,14 +501,14 @@ public class ConvertTest {
 
 如果未找到，则返回原来的字符串。
 
-# 127. StringBuilder
+## 127. StringBuilder
 ![普通的字符串拼接](https://cdn.jsdelivr.net/gh/hljmssjg/PicGo/img/普通的字符串拼接.JPG)
 
 普通的字符串拼接耗时并且浪费堆内存空间。
 
 `StringBuilder`可以解决这个问题。本质上是一个可变的字符串容器。
 
-# 128. StringBuilder的构建方法
+## 128. StringBuilder的构建方法
 
 主要有两种构建方式：
 ```java
@@ -531,7 +532,7 @@ public class StringBuilderDemo {
 
 ```
 
-# 129. StringBuilder的添加和反转
+## 129. StringBuilder的添加和反转
 
 ```java
 package StringBuilderDemo;
@@ -565,7 +566,7 @@ public class StringBuilderAddReverse {
 }
 
 ```
-# 130. StringBuilder和String相互转换
+## 130. StringBuilder和String相互转换
 
 `StringBuilder`里面有反转和添加方法很好用，所以将`String`转化为`StringBuilder`。
 
@@ -596,7 +597,7 @@ public class Converse {
 }
 
 ```
-# 131. 拼接字符串：升级版
+## 131. 拼接字符串：升级版
 案例:使用`StringBuilder`把一个数组中的元素拼接成字符串。
 
 ```java
@@ -623,7 +624,7 @@ public class Joint {
     }
 }
 ```
-# 132. 反转字符串：升级版
+## 132. 反转字符串：升级版
 
 键盘输入字符串，控制台输出反转。
 
@@ -651,5 +652,5 @@ public class StringBuilderReverse {
 }
 
 ```
-# 133. 帮助文档方法查看StringBuilder的用法
+## 133. 帮助文档方法查看StringBuilder的用法
 看帮助文档。

@@ -115,3 +115,83 @@ div.footnotes {
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
+.toc-fixed {
+  /* 布局定位（保持不变） */
+  position: fixed;
+  top: 50%;
+  left: calc(50% - 680px);
+  transform: translateY(-50%);
+  width: 220px; /* 稍加宽以容纳更美观的文字 */
+  max-height: 70vh;
+  overflow-y: auto;
+  z-index: 10;
+
+  /* 背景与边框（保持简洁） */
+  background: rgba(255, 255, 255, 0.95); /* 更不透明的背景 */
+  border-left: 3px solid #4a6fa5;        /* 更柔和的蓝色 */
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+  /* 文字美化核心部分 */
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif; /* 现代字体栈 */
+  font-size: 14px;           /* 基础字号 */
+  line-height: 1.6;          /* 行高提升可读性 */
+  color: #333;               /* 主文字颜色 */
+  padding: 16px 12px;        /* 内边距调整 */
+}
+
+/* 目录标题（如果有） */
+.toc-fixed .toc-title {
+  font-size: 16px;
+  font-weight: 600;          /* 中等加粗 */
+  color: #4a6fa5;            /* 与边框同色系 */
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;     /* 轻微字距 */
+}
+
+/* 目录列表项 */
+.toc-fixed ul {
+  list-style: none;
+  padding-left: 8px;
+  margin: 0;
+}
+
+.toc-fixed li {
+  margin: 8px 0;             /* 增大项间距 */
+  position: relative;
+  padding-left: 12px;        /* 为装饰符号留空间 */
+}
+
+/* 目录项前的装饰点（可选） */
+.toc-fixed li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #7a9cc6;            /* 浅蓝色点 */
+  font-size: 12px;
+}
+
+/* 链接样式 */
+.toc-fixed a {
+  color: #444;               /* 深灰色 */
+  text-decoration: none;
+  transition: color 0.2s;
+  display: block;            /* 使整个区域可点击 */
+}
+
+.toc-fixed a:hover {
+  color: #4a6fa5;            /* 悬停时主蓝色 */
+}
+
+/* 二级标题（h3）缩进 */
+.toc-fixed ul ul {
+  padding-left: 16px;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 1200px) {
+  .toc-fixed {
+    left: 20px;
+    width: 180px;
+  }
+}

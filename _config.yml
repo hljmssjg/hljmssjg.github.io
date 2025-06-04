@@ -30,6 +30,12 @@ footer:
       name: GitHub
       link: https://github.com/hljmssjg
 
+toc:
+  min_level: 2
+  max_level: 3
+  no_toc_section_class: no_toc
+  list_type: ul
+  heading: 目录
 
 # Build settings
 markdown: kramdown
@@ -42,6 +48,7 @@ sass:
     style: compressed
 plugins:
   - jekyll-feed
+  - jekyll-toc
 
 # Excluded items
 exclude:
