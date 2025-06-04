@@ -195,3 +195,10 @@ div.footnotes {
     width: 180px;
   }
 }
+
+/* 移动端直接隐藏 */
+@media screen and (max-width: 768px) {
+  .toc-fixed {
+    display: none !important; /* 强制隐藏 */
+  }
+}
