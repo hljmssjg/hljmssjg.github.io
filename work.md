@@ -1,6 +1,6 @@
 ---
 layout: work
-title: Project experience and publications
+#title: Project experience and publications
 slug: /work
 sections:
   - title: Projects
