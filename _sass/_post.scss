@@ -197,7 +197,7 @@ div.footnotes {
 }
 
 /* 移动端直接隐藏 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1500px) {
   .toc-fixed {
     display: none !important; /* 强制隐藏 */
   }
