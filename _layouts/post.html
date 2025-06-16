@@ -42,6 +42,13 @@
           </nav>
           {% endif %}
           <article class="post-content">
+            {% if page.pdf %}
+            <div class="pdf-viewer" style="margin-bottom: 2em;">
+              <iframe src="{{ page.pdf | absolute_url }}" width="100%" height="600px">
+                <p>Your browser does not support iframes.</p>
+              </iframe>
+            </div>
+            {% endif %}
             {{ content }}
           </article>
 
