@@ -79,7 +79,7 @@ object rearrangement, object grasping, and related tasks.
       Martin Rosvall
     </a>
     <br />
-    <em>Sep 2019 -Jul 2020 | Umeå, Sweden</em>  
+    <em>Sep 2019 - Jul 2020 | Umeå, Sweden</em>  
   </div>
 </div>
 
