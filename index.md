@@ -4,11 +4,17 @@ profile_picture:
   src: /assets/img/JG.jpeg
   alt: website picture
 ---
-I am an algorithm engineer at Hive Box, specializing in the field of embodied intelligence. My work involves controlling humanoid robot locomotion using reinforcement learning and employing imitation learning to control robotic arms for various industrial applications.
+I am a first-year PhD student at [Deep Reinforcement Learning (DRL) Lab](http://rl.beiyang.ren/), 
+Tianjin University (TJU), advised by Prof. [Jianye Hao](http://www.icdai.org/jianye.html).
 
-I hold a Master’s degree in Robotics and Control from Umeå University in Sweden. Before that, I participated in an exchange program during my fourth undergraduate year at Shenzhen University and earned dual Bachelor's degrees: one in Physics from Umeå University and another in Electronic Science and Technology from Shenzhen University. In addition, I have held previous positions at Great Wall and LimX Dynamics.
+I hold a Master’s degree in Robotics and Control from Umeå University in Sweden. Before that, 
+I participated in an exchange program during my fourth undergraduate year at Shenzhen University 
+and earned dual Bachelor's degrees: one in Physics from Umeå University and another in 
+Electronic Science and Technology from Shenzhen University. 
+In addition, I have held previous positions at Great Wall and LimX Dynamics.
 
-I am interested in research on the building embodied AI. My current research interest contains Embodied AI, Diffusion Model, Reinforcement Learning and Sim2Real. 
+I am interested in object-centric robotic manipulation. My current research interests include 6D 
+object rearrangement, object grasping, and related tasks.
 
 **For details on my project experience, publications, and more, please visit the [Work](https://hljmssjg.github.io/work) page.**
 
