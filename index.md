@@ -11,7 +11,7 @@ I hold a Master’s degree in Robotics and Control from Umeå University in Swed
 I participated in an exchange program during my fourth undergraduate year at Shenzhen University 
 and earned dual Bachelor's degrees: one in Physics from Umeå University and another in 
 Electronic Science and Technology from Shenzhen University. 
-In addition, I have held previous positions at Great Wall and LimX Dynamics.
+In addition, I have held previous positions at Great Wall, LimX Dynamics and Hive Box.
 
 I am interested in object-centric robotic manipulation. My current research interests include 6D 
 object rearrangement, object grasping, and related tasks.
