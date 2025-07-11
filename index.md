@@ -22,6 +22,23 @@ object rearrangement, object grasping, and related tasks.
 
 # Education
 <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+  <img src="/assets/img/TJU.png" alt="school icon" style="width: 64px; height: 64px; margin-right: 15px;" />
+  <div>
+    <strong><a href="https://www.tju.edu.cn/">Tianjin University</a></strong>  
+    <br />
+    Ph.D. Candidate in Intelligent Science and Technology  
+    <br />
+    <em>Supervisor:</em>
+    <a href="http://www.icdai.org/jianye.html" style="font-style: italic;">
+      Jianye Hao
+    </a>
+    <br />
+    <em>Sep 2025 - Current | Tianjin, China</em>  
+  </div>
+</div>
+
+
+<div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
   <img src="/assets/img/umu.png" alt="school icon" style="width: 64px; height: 64px; margin-right: 15px;" />
   <div>
     <strong><a href="https://umu.se/">Umeå universitet</a></strong>  
@@ -41,7 +58,7 @@ object rearrangement, object grasping, and related tasks.
       Suna Bensch
     </a>
     <br />
-    <em>Sep 2023 | Umeå, Sweden</em>  
+    <em>Sep 2020 - Sep 2023 | Umeå, Sweden</em>  
   </div>
 </div>
 
@@ -62,7 +79,7 @@ object rearrangement, object grasping, and related tasks.
       Martin Rosvall
     </a>
     <br />
-    <em>Jul 2020 | Umeå, Sweden</em>  
+    <em>Sep 2019 -Jul 2020 | Umeå, Sweden</em>  
   </div>
 </div>
 
@@ -75,7 +92,7 @@ object rearrangement, object grasping, and related tasks.
     <br />
     <em>Note: Double degree</em>
     <br />
-    <em>Jul 2020 | Shenzhen, China</em>  
+    <em>Sep 2016 - Jul 2020 | Shenzhen, China</em>  
   </div>
 </div>
 
