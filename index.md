@@ -33,7 +33,7 @@ object rearrangement, object grasping, and related tasks.
       Jianye Hao
     </a>
     <br />
-    <em>Sep 2025 - Current | Tianjin, China</em>  
+    <em>Sep 2025 - Present | Tianjin, China</em>  
   </div>
 </div>
 
@@ -106,7 +106,7 @@ object rearrangement, object grasping, and related tasks.
     <br />
     Algorithm Engineer 
     <br />
-    <span style="font-style: italic;">Jul 2024 - Present | Shenzhen, China</span>
+    <span style="font-style: italic;">Jul 2024 - June 2025 | Shenzhen, China</span>
   </div>
 </div>
 
