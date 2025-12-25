@@ -26,7 +26,7 @@ object rearrangement, object grasping, and related tasks.
   <div>
     <strong><a href="https://www.tju.edu.cn/">Tianjin University</a></strong>  
     <br />
-    Ph.D. Candidate in Intelligent Science and Technology  
+    Ph.D. Student in Intelligent Science and Technology  
     <br />
     <em>Supervisor:</em>
     <a href="http://www.icdai.org/jianye.html" style="font-style: italic;">
